@@ -5,6 +5,11 @@
  */
 package com.esprit.test;
 
+import com.wassalni.entites.Reservation;
+import com.wassalni.entites.Type;
+import com.wassalni.services.ReservationService;
+import java.sql.SQLException;
+import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +36,18 @@ public class test extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+//        launch(args);
+        ReservationService ser = new ReservationService();
+        Reservation r1 = new Reservation("mourouj 2","2/12/566",Type.valueOf("Taxi"),15.0f,1,1);
+        
+        try {
+         ser.ajouter(r1);
+         List<Reservation> list = ser.readAll();
+            System.out.println(list);
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
     }
     
 }
