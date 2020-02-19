@@ -110,6 +110,12 @@ public class Reservation {
     public String toString() {
         return "Resrvation{" + "id_res=" + id_res + ", destination=" + destination + ", Datae_reservation=" + date_reservation + ", type_reservation=" + type_reservation + ", prix=" + prix + ", user_id_client=" + user_id_client + ", voiture_id_voiture=" + voiture_id_voiture + '}';
     }
+
+    public class voiture {
+
+        public voiture() {
+        }
+    }
     
     
     
