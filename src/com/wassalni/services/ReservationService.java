@@ -5,6 +5,8 @@
  */
 package com.wassalni.services;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.wassalni.Iservices.IReservation;
 import com.wassalni.entites.Reservation;
 import com.wassalni.entites.Type;
@@ -16,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import com.wassalni.entites.Voiture;
 
 /**
  *
@@ -24,6 +27,8 @@ import java.util.List;
 public class ReservationService implements IReservation {
     private Connection con;
     private Statement ste;
+    
+    
 
     public ReservationService() {
         
@@ -34,7 +39,7 @@ public class ReservationService implements IReservation {
     public void ajouter(Reservation r) throws SQLException {
         ste = con.createStatement();
         String requeteInsert = "INSERT INTO `reservation`( `destination`, `date_reservation`,`type_reservation`,`prix`, `user_id_client`, `voiture_id_voiture`) "
-                + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','Taxi',15,1,1);";
+                + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','"+r.getType_reservation()+"',15,1,'"+r.getVoiture_id_voiture()+"');";
         ste.executeUpdate(requeteInsert);
     }
 
