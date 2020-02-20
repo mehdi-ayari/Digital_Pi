@@ -19,6 +19,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import com.wassalni.entites.Voiture;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,11 +38,15 @@ public class ReservationService implements IReservation {
     }
 
     @Override
-    public void ajouter(Reservation r) throws SQLException {
-        ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `reservation`( `destination`, `date_reservation`,`type_reservation`,`prix`, `user_id_client`, `voiture_id_voiture`) "
+    public void ajouter(Reservation r) throws SQLException{
+        try {
+            ste = con.createStatement();
+             String requeteInsert = "INSERT INTO `reservation`( `destination`, `date_reservation`,`type_reservation`,`prix`, `user_id_client`, `voiture_id_voiture`) "
                 + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','"+r.getType_reservation()+"',15,1,'"+r.getVoiture_id_voiture()+"');";
         ste.executeUpdate(requeteInsert);
+        } catch (SQLException ex) {
+        }
+       
     }
 
     @Override
@@ -53,25 +59,32 @@ public class ReservationService implements IReservation {
     }
 
     @Override
-    public boolean update(Reservation r) throws SQLException {
+    public boolean update(Reservation r) {
         String type=String.valueOf(r.getType_reservation());
                 
-        PreparedStatement pre = con.prepareStatement("UPDATE `reservation` SET `destination`=?,`date_reservation`=?,`type_reservation`=?,`prix`=? WHERE `id_res`=?;");
-        pre.setString(1, r.getDestination());
+        PreparedStatement pre;
+        try {
+            pre = con.prepareStatement("UPDATE `reservation` SET `destination`=?,`date_reservation`=?,`type_reservation`=? WHERE `id_res`=?;");
+        
+         pre.setString(1, r.getDestination());
         pre.setString(2, r.getDate_reservation());
         pre.setString(3,type );
         pre.setFloat(4, r.getPrix());
         pre.executeUpdate();
         
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
         return true;
     }
 
     @Override
-    public List<Reservation> readAll() throws SQLException {
+    public List<Reservation> readAll()  {
         List<Reservation> arr=new ArrayList<>();
-    ste=con.createStatement();
-    
-    ResultSet rs=ste.executeQuery("select * from Reservation");
+        try {
+            ste=con.createStatement();
+            ResultSet rs=ste.executeQuery("select * from Reservation");
      while (rs.next()) {                
                int id_res=rs.getInt(1);
                String destination=rs.getString("destination");
@@ -83,6 +96,10 @@ public class ReservationService implements IReservation {
                Reservation p=new Reservation(id_res, destination, date_reservation, type_reservation,prix, user_id_client,voiture_id_voiture);
      arr.add(p);
      }
+        } catch (SQLException ex) {
+        }
+    
+    
     return arr;
     }
     }
