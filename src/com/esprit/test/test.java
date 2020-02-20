@@ -25,7 +25,7 @@ public class test extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Ajout_reservation.fxml"));
 ////         ReservationService ser = new ReservationService();
 ////        Reservation r1 = new Reservation("mourouj 2","2/12/566",Type.valueOf("Taxi"),15.0f,1,1);
 ////          Reservation r1 = new Reservation();
