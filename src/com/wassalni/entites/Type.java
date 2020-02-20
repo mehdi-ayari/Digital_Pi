@@ -14,16 +14,19 @@ public enum Type {
     
    Taxi,Privée,camion;
 
-    public Type getType(int x) {
-        switch (x) {
-            case 1:
-                return Taxi;
-            case 2:
-                return Privée;
-            default:
-                return camion;
-        }
-    }
+//    public Type getType(int x) {
+//        
+//        
+//        
+//        switch (x) {
+//            case 1:
+//                return Taxi;
+//            case 2:
+//                return Privée;
+//            default:
+//                return camion;
+//        }
+//    }
 
     public static Type getTaxi() {
         return Taxi;
