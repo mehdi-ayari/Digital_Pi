@@ -69,11 +69,10 @@ public class ReservationService implements IReservation {
          pre.setString(1, r.getDestination());
         pre.setString(2, r.getDate_reservation());
         pre.setString(3,type );
-        pre.setFloat(4, r.getPrix());
+        pre.setInt(4, r.getId_res());
         pre.executeUpdate();
-        
+            System.out.println("reservation modifiée");
         } catch (SQLException ex) {
-            Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
         }
        
         return true;
@@ -102,7 +101,8 @@ public class ReservationService implements IReservation {
     
     return arr;
     }
-    }
+    
+}
     
     
     
