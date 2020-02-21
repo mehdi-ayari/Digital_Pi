@@ -80,12 +80,11 @@ public class Ajout_reservationController implements Initializable {
     private Button btnsupprimer;
     @FXML
     private TextField txtmodifdestination;
-        @FXML
-    private ComboBox<?> txtmodiftype;
     @FXML
     private TextField txtmodifdateres;
-    private ComboBox<Reservation> cmbmodiftype;
-    
+    @FXML
+    private ComboBox<String> cmbmodiftype;
+    private int idR;
     
     /**
      * Initializes the controller class.
@@ -94,6 +93,8 @@ public class Ajout_reservationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         boxtype.setItems(list);
+                          cmbmodiftype.setItems(list);
+
         reservations=ser.readAll();
         idres.setCellValueFactory(new PropertyValueFactory("id_res") );
         destination.setCellValueFactory(new PropertyValueFactory("destination") );
@@ -111,14 +112,14 @@ public class Ajout_reservationController implements Initializable {
               if (event.getClickCount() == 2) {
                   //activer les Buttons 
                   reverseButton(false);
-                  
+                 
                   ReservationSelectionner = tablereservation.getItems().get(tablereservation.getSelectionModel().getSelectedIndex());
                   indexReservationSemectionner=tablereservation.getSelectionModel().getSelectedIndex();
                   txtmodifdestination.setText(ReservationSelectionner.getDestination());
                   txtmodifdateres.setText(ReservationSelectionner.getDate_reservation());
-                  cmbmodiftype.setItems(list);
                   //System.out.println(ProduitSelectionner.getCategorie());
-//                  cmbmodiftype.setValue(Type.valueOf(ReservationSelectionner.getType_reservation().toString()));
+                  cmbmodiftype.setValue(ReservationSelectionner.getType_reservation().toString());
+                 
               }
              
                     });
@@ -172,6 +173,16 @@ public class Ajout_reservationController implements Initializable {
 
     @FXML
     private void onmodifier(ActionEvent event) {
+          idR=ReservationSelectionner.getId_res();
+                  System.out.println(idR);
+                  ReservationSelectionner.setId_res(idR);
+        ReservationSelectionner.setDestination(txtmodifdestination.getText());
+       ReservationSelectionner.setDate_reservation(txtmodifdateres.getText());
+       ReservationSelectionner.setType_reservation(Type.valueOf(cmbmodiftype.getValue()));
+       
+     
+        //System.out.println(ProduitSelectionner);
+       ser.update(ReservationSelectionner);
     }
 
     @FXML
