@@ -64,12 +64,11 @@ public class ReservationService implements IReservation {
                 
         PreparedStatement pre;
         try {
-            pre = con.prepareStatement("UPDATE `reservation` SET `destination`=?,`date_reservation`=?,`type_reservation`=? WHERE `id_res`=?;");
+            pre = con.prepareStatement("UPDATE `reservation` SET `destination`=?,`type_reservation`=? WHERE `id_res`=?;");
         
          pre.setString(1, r.getDestination());
-        pre.setTimestamp(2, r.getDate_reservation());
-        pre.setString(3,type );
-        pre.setInt(4, r.getId_res());
+        pre.setString(2,type );
+        pre.setInt(3, r.getId_res());
         pre.executeUpdate();
             System.out.println("reservation modifiée");
         } catch (SQLException ex) {
@@ -88,10 +87,10 @@ public class ReservationService implements IReservation {
               
                String destination=rs.getString("destination");
                Timestamp date_reservation=rs.getTimestamp(3);
-               Type type_reservation=Type.valueOf(rs.getString(5));
-               float prix=rs.getInt(6);
-               int user_id_client=rs.getInt(7);
-               int user_id_chauffeur=rs.getInt(8);
+               Type type_reservation=Type.valueOf(rs.getString(4));
+               float prix=rs.getInt(5);
+               int user_id_client=rs.getInt(6);
+               int user_id_chauffeur=rs.getInt(7);
                Reservation p=new Reservation(destination, date_reservation, type_reservation,prix, user_id_client,user_id_chauffeur);
      arr.add(p);
      }
