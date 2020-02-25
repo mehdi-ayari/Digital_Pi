@@ -32,6 +32,16 @@ public class Reservation {
         this.user_id_chauffeur = user_id_chauffeur;
     }
 
+    public Reservation(int id_res, String destination, Timestamp date_reservation, Type type_reservation, float prix, int user_id_client, int user_id_chauffeur) {
+        this.id_res = id_res;
+        this.destination = destination;
+        this.date_reservation = date_reservation;
+        this.type_reservation = type_reservation;
+        this.prix = prix;
+        this.user_id_client = user_id_client;
+        this.user_id_chauffeur = user_id_chauffeur;
+    }
+
     
     
     public int getId_res() {
