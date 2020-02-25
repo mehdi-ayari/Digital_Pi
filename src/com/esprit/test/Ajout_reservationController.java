@@ -5,6 +5,7 @@ import com.wassalni.entites.Type;
 import com.wassalni.services.ReservationService;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -35,7 +36,7 @@ public class Ajout_reservationController implements Initializable {
         ReservationService ser = new ReservationService();
         private List<Reservation> reservations= new ArrayList<>() ;
         private Reservation ReservationSelectionner = new Reservation();
-        private int indexReservationSemectionner;
+        private int indexReservationSelectionner;
  ObservableList list =FXCollections.observableArrayList("Taxi","Privée","camion");
     @FXML
     private Label nomch;
@@ -51,15 +52,12 @@ public class Ajout_reservationController implements Initializable {
     private Button btnvalider;
     @FXML
     private Button btnannuller;
-    @FXML
     private TextField dateres;
     @FXML
     private TextField txterreur;
 
     @FXML
-    private TextField txtidclient;
-    @FXML
-    private TableColumn<Reservation, Integer> idres;
+    private TableView<Reservation> tablereservation;
     @FXML
     private TableColumn<Reservation, String> destination;
     @FXML
@@ -68,23 +66,29 @@ public class Ajout_reservationController implements Initializable {
     private TableColumn<Reservation, Type> typereservation;
     @FXML
     private TableColumn<Reservation, Float> prixreservation;
+    
+    private TableColumn<?, ?> nomclient;
     @FXML
-    private TableColumn<Reservation, Integer> idclient;
+    private TableColumn<?, ?> prenclient;
     @FXML
-    private TableColumn<Reservation, Integer> idchauffeur;
+    private TableColumn<?, ?> nomchauffeur;
     @FXML
-    private TableView<Reservation> tablereservation;
+    private TableColumn<?, ?> prenomchauffeur;
+//    private TableColumn<Reservation, Integer> idclient;
+//    private TableColumn<Reservation, Integer> idchauffeur;
+    
     @FXML
     private Button btnmodifier;
     @FXML
     private Button btnsupprimer;
     @FXML
     private TextField txtmodifdestination;
-    @FXML
     private TextField txtmodifdateres;
     @FXML
     private ComboBox<String> cmbmodiftype;
     private int idR;
+    @FXML
+    
     
     /**
      * Initializes the controller class.
@@ -96,13 +100,13 @@ public class Ajout_reservationController implements Initializable {
                           cmbmodiftype.setItems(list);
 
         reservations=ser.readAll();
-        idres.setCellValueFactory(new PropertyValueFactory("id_res") );
+//        idres.setCellValueFactory(new PropertyValueFactory("id_res") );
         destination.setCellValueFactory(new PropertyValueFactory("destination") );
         datereservation.setCellValueFactory(new PropertyValueFactory("date_reservation") );
         typereservation.setCellValueFactory(new PropertyValueFactory("type_reservation") );
         prixreservation.setCellValueFactory(new PropertyValueFactory("prix") );
-        idclient.setCellValueFactory(new PropertyValueFactory("user_id_client") );
-        idchauffeur.setCellValueFactory(new PropertyValueFactory("voiture_id_voiture") );
+//        idclient.setCellValueFactory(new PropertyValueFactory("user_id_client") );
+//        idchauffeur.setCellValueFactory(new PropertyValueFactory("voiture_id_voiture") );
         
         tablereservation.getItems().addAll(reservations);
         reverseButton(true);
@@ -114,9 +118,9 @@ public class Ajout_reservationController implements Initializable {
                   reverseButton(false);
                  
                   ReservationSelectionner = tablereservation.getItems().get(tablereservation.getSelectionModel().getSelectedIndex());
-                  indexReservationSemectionner=tablereservation.getSelectionModel().getSelectedIndex();
+                  indexReservationSelectionner=tablereservation.getSelectionModel().getSelectedIndex();
                   txtmodifdestination.setText(ReservationSelectionner.getDestination());
-                  txtmodifdateres.setText(ReservationSelectionner.getDate_reservation());
+//                  txtmodifdateres.setText(ReservationSelectionner.getDate_reservation());
                   //System.out.println(ProduitSelectionner.getCategorie());
                   cmbmodiftype.setValue(ReservationSelectionner.getType_reservation().toString());
                  
@@ -129,7 +133,7 @@ public class Ajout_reservationController implements Initializable {
     private void OnClickValider(ActionEvent event) {
         
         String dest = txtdestination.getText();
-        String datr = dateres.getText();
+        Timestamp datr = new Timestamp(System.currentTimeMillis());
         String type = boxtype.getItems().toString();
         
         if(dest.equals(""))
@@ -173,11 +177,13 @@ public class Ajout_reservationController implements Initializable {
 
     @FXML
     private void onmodifier(ActionEvent event) {
+                Timestamp datr = new Timestamp(System.currentTimeMillis());
+
           idR=ReservationSelectionner.getId_res();
                   System.out.println(idR);
                   ReservationSelectionner.setId_res(idR);
         ReservationSelectionner.setDestination(txtmodifdestination.getText());
-       ReservationSelectionner.setDate_reservation(txtmodifdateres.getText());
+       ReservationSelectionner.setDate_reservation(datr);
        ReservationSelectionner.setType_reservation(Type.valueOf(cmbmodiftype.getValue()));
        
      
