@@ -5,6 +5,8 @@
  */
 package com.wassalni.entites;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Mahdi
@@ -12,44 +14,26 @@ package com.wassalni.entites;
 public class Reservation {
     private int id_res;
     private String destination;
-    private String date_reservation;
+    private Timestamp date_reservation;
     private Type type_reservation; 
     private float prix;
     private int user_id_client;
-    private int voiture_id_voiture;
+    private int user_id_chauffeur;
 
     public Reservation() {
     }
 
-    public Reservation(String destination, String date_reservation, Type type_reservation, float prix) {
-        this.destination = destination;
-        this.date_reservation = date_reservation;
-        this.type_reservation = type_reservation;
-        this.prix = prix;
-    }
-
-    public Reservation(String destination, String date_reservation, Type type_reservation, float prix, int user_id_client, int voiture_id_voiture) {
+    public Reservation(String destination, Timestamp date_reservation, Type type_reservation, float prix, int user_id_client, int user_id_chauffeur) {
         this.destination = destination;
         this.date_reservation = date_reservation;
         this.type_reservation = type_reservation;
         this.prix = prix;
         this.user_id_client = user_id_client;
-        this.voiture_id_voiture = voiture_id_voiture;
+        this.user_id_chauffeur = user_id_chauffeur;
     }
 
     
-    public Reservation(int id_res, String destination, String date_reservation, Type type_reservation, float prix, int user_id_client, int voiture_id_voiture) {
-        this.id_res = id_res;
-        this.destination = destination;
-        this.date_reservation = date_reservation;
-        this.type_reservation = type_reservation;
-        this.prix = prix;
-        this.user_id_client = user_id_client;
-        this.voiture_id_voiture = voiture_id_voiture;
-    }
     
-    
-
     public int getId_res() {
         return id_res;
     }
@@ -58,7 +42,7 @@ public class Reservation {
         return destination;
     }
 
-    public String getDate_reservation() {
+    public Timestamp getDate_reservation() {
         return date_reservation;
     }
 
@@ -74,9 +58,11 @@ public class Reservation {
         return user_id_client;
     }
 
-    public int getVoiture_id_voiture() {
-        return voiture_id_voiture;
+    public int getUser_id_chauffeur() {
+        return user_id_chauffeur;
     }
+
+   
 
     public void setId_res(int id_res) {
         this.id_res = id_res;
@@ -86,8 +72,8 @@ public class Reservation {
         this.destination = destination;
     }
 
-    public void setDate_reservation(String Datae_reservation) {
-        this.date_reservation = Datae_reservation;
+    public void setDate_reservation(Timestamp date_reservation) {
+        this.date_reservation = date_reservation;
     }
 
     public void setType_reservation(Type type_reservation) {
@@ -102,23 +88,17 @@ public class Reservation {
         this.user_id_client = user_id_client;
     }
 
-    public void setVoiture_id_voiture(int voiture_id_voiture) {
-        this.voiture_id_voiture = voiture_id_voiture;
+    public void setUser_id_chauffeur(int user_id_chauffeur) {
+        this.user_id_chauffeur = user_id_chauffeur;
     }
 
-    @Override
-    public String toString() {
-        return "Resrvation{" + "id_res=" + id_res + ", destination=" + destination + ", Datae_reservation=" + date_reservation + ", type_reservation=" + type_reservation + ", prix=" + prix + ", user_id_client=" + user_id_client + ", voiture_id_voiture=" + voiture_id_voiture + '}';
-    }
+  
 
-    public class voiture {
-
-        public voiture() {
-        }
+   
     }
     
     
     
     
     
-}
+
