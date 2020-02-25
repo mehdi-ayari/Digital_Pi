@@ -90,6 +90,8 @@ public class ReservationController implements Initializable {
     @FXML
     private ComboBox<String> cmbmodiftype;
     private int idR;
+    @FXML
+    private Button btnmap;
     
     
     
@@ -213,6 +215,10 @@ public class ReservationController implements Initializable {
                 
             } catch (SQLException ex) {
             }
+    }
+
+    @FXML
+    private void onMap(ActionEvent event) {
     }
 
 }
