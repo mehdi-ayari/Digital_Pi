@@ -16,9 +16,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import com.wassalni.entites.Voiture;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,8 +41,8 @@ public class ReservationService implements IReservation {
     public void ajouter(Reservation r) throws SQLException{
         try {
             ste = con.createStatement();
-             String requeteInsert = "INSERT INTO `reservation`( `destination`, `date_reservation`,`type_reservation`,`prix`, `user_id_client`, `voiture_id_voiture`) "
-                + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','"+r.getType_reservation()+"',15,1,'"+r.getVoiture_id_voiture()+"');";
+             String requeteInsert = "INSERT INTO `reservation`( `destination`, `date_reservation`,`type_reservation`,`prix`, `user_id_client`, `user_id_chauffeur`) "
+                + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','"+r.getType_reservation()+"',15,1,1);";
         ste.executeUpdate(requeteInsert);
         } catch (SQLException ex) {
         }
@@ -67,7 +67,7 @@ public class ReservationService implements IReservation {
             pre = con.prepareStatement("UPDATE `reservation` SET `destination`=?,`date_reservation`=?,`type_reservation`=? WHERE `id_res`=?;");
         
          pre.setString(1, r.getDestination());
-        pre.setString(2, r.getDate_reservation());
+        pre.setTimestamp(2, r.getDate_reservation());
         pre.setString(3,type );
         pre.setInt(4, r.getId_res());
         pre.executeUpdate();
@@ -85,14 +85,14 @@ public class ReservationService implements IReservation {
             ste=con.createStatement();
             ResultSet rs=ste.executeQuery("select * from Reservation");
      while (rs.next()) {                
-               int id_res=rs.getInt(1);
+              
                String destination=rs.getString("destination");
-               String date_reservation=rs.getString(3);
+               Timestamp date_reservation=rs.getTimestamp(3);
                Type type_reservation=Type.valueOf(rs.getString(5));
                float prix=rs.getInt(6);
                int user_id_client=rs.getInt(7);
-               int voiture_id_voiture=rs.getInt(8);
-               Reservation p=new Reservation(id_res, destination, date_reservation, type_reservation,prix, user_id_client,voiture_id_voiture);
+               int user_id_chauffeur=rs.getInt(8);
+               Reservation p=new Reservation(destination, date_reservation, type_reservation,prix, user_id_client,user_id_chauffeur);
      arr.add(p);
      }
         } catch (SQLException ex) {
