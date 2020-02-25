@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.ReservationController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.ReservationController">
     <children>
         <Label fx:id="nomch" layoutX="699.0" layoutY="356.0" minHeight="16" minWidth="69" text="Nom conducteur" />
       <Text layoutX="96.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" />
@@ -44,6 +44,6 @@
       <TextField fx:id="txtmodifdestination" layoutX="831.0" layoutY="126.0" />
       <ComboBox fx:id="cmbmodiftype" layoutX="831.0" layoutY="158.0" prefWidth="150.0" />
       <ChoiceBox fx:id="boxtype" layoutX="343.0" layoutY="395.0" prefWidth="150.0" />
-      <Button layoutX="371.0" layoutY="502.0" mnemonicParsing="false" text="Voir Map" />
+      <Button fx:id="btnmap" layoutX="371.0" layoutY="502.0" mnemonicParsing="false" onAction="#onMap" text="Voir Map" />
     </children>
 </AnchorPane>
