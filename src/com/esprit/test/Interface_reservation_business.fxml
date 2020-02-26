@@ -1,19 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.esprit.test.Interface_reservation_businessController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.Interface_reservation_businessController">
    <children>
-      <TableView layoutX="84.0" layoutY="50.0" prefHeight="200.0" prefWidth="280.0">
+      <Accordion layoutX="300.0" layoutY="394.0" />
+      <Label layoutX="131.0" layoutY="290.0" text="Date depart" />
+      <Label layoutX="131.0" layoutY="344.0" text="Destination" />
+      <TextField fx:id="destination" layoutX="237.0" layoutY="340.0" />
+      <DatePicker fx:id="dated" layoutX="237.0" layoutY="286.0" />
+      <TextField fx:id="heured" layoutX="475.0" layoutY="288.0" prefHeight="17.0" prefWidth="35.0" />
+      <TextField fx:id="minuted" layoutX="589.0" layoutY="288.0" prefHeight="8.0" prefWidth="35.0" />
+      <Button fx:id="btnajouter" layoutX="184.0" layoutY="516.0" mnemonicParsing="false" onAction="#onajouter" text="Ajouter" />
+      <TableView fx:id="tablereservation" layoutX="14.0" layoutY="39.0" prefHeight="200.0" prefWidth="651.0">
         <columns>
-          <TableColumn fx:id="dateresb" prefWidth="113.0" text="date reservation" />
-          <TableColumn fx:id="depart" prefWidth="83.0" text="Depart" />
-            <TableColumn fx:id="destination" prefWidth="83.0" text="Destination" />
-            <TableColumn fx:id="idresb" prefWidth="83.0" text="id reservation" />
+          <TableColumn fx:id="datedepart" prefWidth="75.0" text="Date depart" />
+          <TableColumn fx:id="destinationview" prefWidth="75.0" text="Destination" />
+            <TableColumn fx:id="nomclient" prefWidth="96.0" text="Nom client" />
+            <TableColumn fx:id="prenomclient" prefWidth="110.0" text="Prenom client" />
+            <TableColumn fx:id="pointdepart" prefWidth="108.0" text="Point de depart" />
+            <TableColumn fx:id="nomchauffeur" prefWidth="96.0" text="Nom chauffeur" />
+            <TableColumn fx:id="prenomchauffeur" prefWidth="96.0" text="Prenom chauffeur" />
         </columns>
       </TableView>
+      <Label layoutX="131.0" layoutY="386.0" text="Nom client" />
+      <Label layoutX="131.0" layoutY="428.0" text="Prenom client" />
+      <Label layoutX="131.0" layoutY="471.0" text="Point de dapart" />
+      <TextField fx:id="nom" layoutX="237.0" layoutY="382.0" />
+      <TextField fx:id="prenom" layoutX="237.0" layoutY="424.0" />
+      <TextField fx:id="depart" layoutX="237.0" layoutY="467.0" />
+      <Button fx:id="btnsupprimer" layoutX="378.0" layoutY="252.0" mnemonicParsing="false" text="Supprimer" />
+      <Accordion layoutX="864.0" layoutY="186.0" />
+      <Label layoutX="695.0" layoutY="53.0" text="Date depart" />
+      <Label layoutX="695.0" layoutY="136.0" text="Destination" />
+      <TextField fx:id="modifdestination" layoutX="801.0" layoutY="132.0" />
+      <DatePicker fx:id="modifdated" layoutX="801.0" layoutY="49.0" />
+      <TextField fx:id="modifheured" layoutX="801.0" layoutY="90.0" prefHeight="17.0" prefWidth="35.0" />
+      <TextField fx:id="modifminuted" layoutX="897.0" layoutY="91.0" prefHeight="8.0" prefWidth="35.0" />
+      <Label layoutX="695.0" layoutY="178.0" text="Nom client" />
+      <Label layoutX="695.0" layoutY="220.0" text="Prenom client" />
+      <Label layoutX="695.0" layoutY="263.0" text="Point de dapart" />
+      <TextField fx:id="modifnom" layoutX="801.0" layoutY="174.0" />
+      <TextField fx:id="modifprenom" layoutX="801.0" layoutY="216.0" />
+      <TextField fx:id="modifdepart" layoutX="801.0" layoutY="259.0" />
+      <Button fx:id="btnmodifier" layoutX="775.0" layoutY="315.0" mnemonicParsing="false" onAction="#Onmodifier" text="Modifier" />
+      <Label layoutX="428.0" layoutY="290.0" text="Heure" />
+      <Label layoutX="529.0" layoutY="292.0" text="Minute" />
+      <Label layoutX="747.0" layoutY="93.0" text="Heure" />
+      <Label layoutX="848.0" layoutY="95.0" text="Minute" />
    </children>
 </AnchorPane>
