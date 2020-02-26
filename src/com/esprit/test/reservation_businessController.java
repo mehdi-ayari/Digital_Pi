@@ -13,8 +13,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,8 +29,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
  *
  * @author Mahdi
  */
-public class Interface_reservation_businessController implements Initializable {
-    
+public class reservation_businessController implements Initializable{
+ 
     ReservationbusinessService rsb = new ReservationbusinessService();
     Reservationbusiness Reservationbusinessselectionner = new Reservationbusiness();
     private List<Reservationbusiness> reservations= new ArrayList<>() ;
@@ -91,7 +90,6 @@ public class Interface_reservation_businessController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             // TODO
