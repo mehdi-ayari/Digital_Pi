@@ -76,8 +76,9 @@ public class AddNewsController implements Initializable {
     private ImageView pdp;
     @FXML
     private Button bConsulter;
-    @FXML
     private Button bMail;
+    @FXML
+    private Button bStat;
 
     public TableColumn<News, String> getResTitre() {
         return resTitre;
@@ -173,16 +174,7 @@ public class AddNewsController implements Initializable {
         }
     }
 
- /*   @FXML
-    private void back(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherNews.fxml"));
-        Parent root = loader.load();
-        AfficheNewsController spc = loader.getController();
-        bBack.getScene().setRoot(root);   
-        
-        
-        
-    }*/
+
 
     @FXML
     private void select(ActionEvent event) {
@@ -290,32 +282,7 @@ public class AddNewsController implements Initializable {
                 ).collect(Collectors.toList()));
     }
 
-    /*@FXML
-    private void mail(ActionEvent event) {
-        
-        News n = StudentTv.getSelectionModel().getSelectedItem();
-        System.out.println(n.getEmail());
-        Email email = new Email();
-        HashMap<String, String> message = new HashMap<String, String>();
-        message.put("Title", "GeStudent");
-        message.put("Description", "\"Congratulations, you have been approved! Please use the code below for you account\"");
-        message.put("Content",su.getQRcode(s.getEmail()));
-        try {
 
-            email.sendEmail(n.getEmail(), "AccounT Confirmation", message);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    
-    }*/
-
-  /*  private void back(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("consulter.fxml"));
-        Parent root = loader.load();
-        AccueilController spc = loader.getController();
-        bBack.getScene().setRoot(root);   
-    }*/
 
     @FXML
     private void ShowPhoto(MouseEvent event) {
@@ -334,13 +301,14 @@ public class AddNewsController implements Initializable {
         bConsulter.getScene().setRoot(root);   
     }
 
+
     @FXML
-    private void mail(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("accueil.fxml"));
+    private void stat(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chart.fxml"));
         Parent root = loader.load();
-        AccueilController spc = loader.getController();
+        ChartController spc = loader.getController();
        
-        bMail.getScene().setRoot(root);   
+        bStat.getScene().setRoot(root);   
     }
 
  
