@@ -51,8 +51,8 @@ public class ReservationService implements IReservation {
 
     @Override
     public boolean delete(Reservation r) throws SQLException {
-        PreparedStatement pre=con.prepareStatement("DELETE FROM `reservation` WHERE `date_reservation`= ?");
-        pre.setTimestamp(1, r.getDate_reservation());        
+        PreparedStatement pre=con.prepareStatement("DELETE FROM `reservation` WHERE `id_res`= ?");
+        pre.setInt(1, r.getId_res());        
         pre.executeUpdate();
         
         return true;
