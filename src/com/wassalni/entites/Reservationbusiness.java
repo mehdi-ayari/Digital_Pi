@@ -13,28 +13,61 @@ import java.sql.Timestamp;
  */
 public class Reservationbusiness {
    private int id_res_business ;
-   private Timestamp date_debut ;
+   private Timestamp date_depart ;
    private String destination;
    private int user_id_entreprise;
+   private Timestamp date_reservation;
+   private String nom_client_entreprise;
+   private String prenom_client_entreprise;
+   private String point_depart;
 
+   
     public Reservationbusiness() {
     }
 
-    public Reservationbusiness(int id_res_business, Timestamp date_debut, String destination, int user_id_entreprise) {
+    public Reservationbusiness(int id_res_business, Timestamp date_depart, String destination, int user_id_entreprise,Timestamp date_reservation) {
         this.id_res_business = id_res_business;
-        this.date_debut = date_debut;
+        this.date_depart = date_depart;
         this.destination = destination;
         this.user_id_entreprise = user_id_entreprise;
+        this.date_reservation=date_reservation;
+    }
+
+    public Reservationbusiness(int id_res_business, Timestamp date_depart, String destination, int user_id_entreprise, Timestamp date_reservation, String nom_client_entreprise, String prenom_client_entreprise, String point_depart) {
+        this.id_res_business = id_res_business;
+        this.date_depart = date_depart;
+        this.destination = destination;
+        this.user_id_entreprise = user_id_entreprise;
+        this.date_reservation = date_reservation;
+        this.nom_client_entreprise = nom_client_entreprise;
+        this.prenom_client_entreprise = prenom_client_entreprise;
+        this.point_depart = point_depart;
+    }
+
+    public String getNom_client_entreprise() {
+        return nom_client_entreprise;
+    }
+
+    public String getPrenom_client_entreprise() {
+        return prenom_client_entreprise;
+    }
+
+    public String getPoint_depart() {
+        return point_depart;
     }
     
     
 
+    public Timestamp getDate_reservation() {
+        return date_reservation;
+    }
+    
     public int getId_res_business() {
         return id_res_business;
     }
 
-    public Timestamp getDate_debut() {
-        return date_debut;
+    public Timestamp getDate_depart() {
+        return date_depart;
     }
 
     public String getDestination() {
@@ -49,8 +82,8 @@ public class Reservationbusiness {
         this.id_res_business = id_res_business;
     }
 
-    public void setDate_debut(Timestamp date_debut) {
-        this.date_debut = date_debut;
+    public void setDate_depart(Timestamp date_debut) {
+        this.date_depart = date_debut;
     }
 
     public void setDestination(String destination) {
@@ -59,6 +92,22 @@ public class Reservationbusiness {
 
     public void setUser_id_entreprise(int user_id_entreprise) {
         this.user_id_entreprise = user_id_entreprise;
+    }
+
+    public void setDate_reservation(Timestamp date_reservation) {
+        this.date_reservation = date_reservation;
+    }
+
+    public void setNom_client_entreprise(String nom_client_entreprise) {
+        this.nom_client_entreprise = nom_client_entreprise;
+    }
+
+    public void setPrenom_client_entreprise(String prenom_client_entreprise) {
+        this.prenom_client_entreprise = prenom_client_entreprise;
+    }
+
+    public void setPoint_depart(String point_depart) {
+        this.point_depart = point_depart;
     }
    
    
