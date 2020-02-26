@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="779.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.wassalni.GUI.VoyageController">
+<AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wassalni.GUI.VoyageController">
    <children>
       <TableView fx:id="TableVoyage" layoutX="227.0" prefHeight="542.0" prefWidth="554.0">
         <columns>
@@ -19,6 +18,6 @@
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ecff1f" height="542.0" stroke="BLACK" strokeType="INSIDE" width="227.0" />
-      <Button fx:id="Map" layoutX="68.0" layoutY="359.0" mnemonicParsing="false" text="Open Map" />
+      <Button fx:id="Map" layoutX="68.0" layoutY="359.0" mnemonicParsing="false" onAction="#ajouter" text="Open Map" />
    </children>
 </AnchorPane>

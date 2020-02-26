@@ -7,6 +7,7 @@ package com.wassalni.GUI;
 
 import com.wassalni.entites.Voyage;
 import com.wassalni.services.ServiceVoyage;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -15,12 +16,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -72,5 +78,21 @@ public class VoyageController implements Initializable {
         this.TableVoyage.setEditable(true);
         // TODO
     }    
+
+    @FXML
+    private void ajouter(ActionEvent event) {
+                try {
+            Parent root = FXMLLoader
+        .load(getClass().getResource("Map.fxml"));
+            
+            Scene scene = new Scene(root);
+            Stage primaryStage = new Stage();
+            primaryStage.setTitle("WASSALNI!");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+    }
+    }
     
 }
