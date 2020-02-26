@@ -24,7 +24,7 @@
       <Button fx:id="btnvalider" layoutX="298.0" layoutY="604.0" mnemonicParsing="false" onAction="#OnClickValider" text="Valider" />
       <Button fx:id="btnannuller" layoutX="433.0" layoutY="604.0" mnemonicParsing="false" onAction="#OnClickRefuser" text="Annuller" />
       <TextField fx:id="txterreur" layoutX="344.0" layoutY="447.0" />
-      <TableView fx:id="tablereservation" layoutX="14.0" layoutY="62.0" prefHeight="200.0" prefWidth="723.0">
+      <TableView fx:id="tablereservation" layoutX="14.0" layoutY="62.0" prefHeight="200.0" prefWidth="722.0">
         <columns>
           <TableColumn fx:id="destination" prefWidth="72.0" text="destination" />
             <TableColumn fx:id="datereservation" prefWidth="100.0" text="date reseration" />
@@ -34,7 +34,6 @@
             <TableColumn fx:id="prenclient" prefWidth="101.0" text="prenom client" />
             <TableColumn fx:id="nomchauffeur" prefWidth="94.0" text="nom chauffeur" />
             <TableColumn fx:id="prenomchauffeur" prefWidth="101.0" text="prenom chauffeur" />
-            <TableColumn fx:id="idres" prefWidth="51.0" text="id_res" />
         </columns>
       </TableView>
       <Button fx:id="btnmodifier" layoutX="831.0" layoutY="198.0" mnemonicParsing="false" onAction="#onmodifier" text="Modifier" />
