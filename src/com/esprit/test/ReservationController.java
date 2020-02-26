@@ -105,7 +105,7 @@ public class ReservationController implements Initializable {
                           cmbmodiftype.setItems(list);
 
         reservations=ser.readAll();
-        idres.setCellValueFactory(new PropertyValueFactory("id_res") );
+//        idres.setCellValueFactory(new PropertyValueFactory("id_res") );
         destination.setCellValueFactory(new PropertyValueFactory("destination") );
         datereservation.setCellValueFactory(new PropertyValueFactory("date_reservation") );
         typereservation.setCellValueFactory(new PropertyValueFactory("type_reservation") );
@@ -205,7 +205,7 @@ public class ReservationController implements Initializable {
     @FXML
     private void onsupprimer(ActionEvent event) {
         Reservation r = new Reservation();
-        r.setDate_reservation(ReservationSelectionner.getDate_reservation());
+        r.setId_res(ReservationSelectionner.getId_res());
         
         
         
@@ -219,6 +219,8 @@ public class ReservationController implements Initializable {
 
     @FXML
     private void onMap(ActionEvent event) {
+        
+        
     }
 
 }
