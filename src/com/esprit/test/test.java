@@ -5,6 +5,9 @@
  */
 package com.esprit.test;
 
+import com.wassalni.entites.Voyage;
+import com.wassalni.services.ServiceVoyage;
+import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +34,15 @@ public class test extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        //launch(args);
+        
+        Voyage voy = new Voyage(1, 1);
+        ServiceVoyage v= new ServiceVoyage();
+        
+        try {
+            v.ajouter(voy);
+        } catch (SQLException ex) {
+        }
     }
     
 }
