@@ -25,8 +25,18 @@ public class test extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Ajout_reservation.fxml"));
-////         ReservationService ser = new ReservationService();
+        Parent root = FXMLLoader.load(getClass().getResource("Interface_reservation_client.fxml"));
+        Parent root1 = FXMLLoader.load(getClass().getResource("Interface_reservation_business.fxml"));
+
+    
+        Scene scene1 = new Scene(root1);
+        Scene scene = new Scene(root);
+        
+        
+        stage.setScene(scene);
+        stage.show();
+        
+        ////         ReservationService ser = new ReservationService();
 ////        Reservation r1 = new Reservation("mourouj 2","2/12/566",Type.valueOf("Taxi"),15.0f,1,1);
 ////          Reservation r1 = new Reservation();
 ////          r1.setDestination(dest);
@@ -39,12 +49,6 @@ public class test extends Application {
 //            System.out.println(ex);
 //        }
     
-    
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
     }
 
     /**
