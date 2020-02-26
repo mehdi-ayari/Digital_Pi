@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wassalni.GUI;
+package com.wassalni.GUIVoyage;
 
 import com.teamdev.jxmaps.*;
 import com.teamdev.jxmaps.ControlPosition;
@@ -13,6 +13,7 @@ import com.teamdev.jxmaps.MapOptions;
 import com.teamdev.jxmaps.MapReadyHandler;
 import com.teamdev.jxmaps.MapStatus;
 import com.teamdev.jxmaps.MapTypeControlOptions;
+import com.teamdev.jxmaps.examples.DirectionsExample;
 import com.teamdev.jxmaps.javafx.MapView;
 import com.wassalni.entites.Voyage;
 import com.wassalni.services.ServiceVoyage;
@@ -26,6 +27,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.print.attribute.standard.Destination;
+import javax.swing.JOptionPane;
 
 /**
  * Represents FXML control with MapViewer instance.
@@ -37,11 +40,13 @@ public class MapController implements Initializable {
     private Voyage Voy = new Voyage();
     private ServiceVoyage V = new ServiceVoyage();
     public ObservableList<Voyage> data = FXCollections.observableArrayList();
-
+    String desti=  VoyageController.dest;
     
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+       
         try {
             // Creation of a JavaFX map view
             //final MapView mapView = new MapView();
@@ -76,7 +81,7 @@ public class MapController implements Initializable {
                     mark.setPosition(origin);
                      
                      
-                    performGeocode("tunis");
+                    performGeocode(desti);
                 }
             }
         });
@@ -89,7 +94,7 @@ public class MapController implements Initializable {
         GeocoderRequest request = new GeocoderRequest();
         // Setting address to the geocode request
         request.setAddress(text);
-
+        
         // Geocoding position by the entered address
         mapView.getServices().getGeocoder().geocode(request, new GeocoderCallback(map) {
             @Override

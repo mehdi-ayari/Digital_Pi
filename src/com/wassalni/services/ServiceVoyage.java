@@ -107,6 +107,22 @@ public class ServiceVoyage {
      }
     return Voy;
     }
+    
+  /*      public List<Voyage> readByClient( ) throws SQLException {
+    List<Voyage> Voy=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select id_voyage , distance , date_voyage , reservation_id_res , destination from voyage v inner join reservation r where user_id_client = "+ SignUpController.UserID + tri + ordre);
+     while (rs.next()) {                
+               int id_voyage=rs.getInt(1);
+               float distance=rs.getFloat("distance");
+               Timestamp date_voyage=rs.getTimestamp("date_voyage");
+               int reservation_id_res=rs.getInt("reservation_id_res");
+               String destination=rs.getString("destination");
+               Voyage n=new Voyage(id_voyage, distance, date_voyage, reservation_id_res,destination);
+     Voy.add(n);
+     }
+    return Voy;
+    }*/
    
    
 }

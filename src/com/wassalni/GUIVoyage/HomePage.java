@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wassalni.GUI;
+package com.wassalni.GUIVoyage;
 
 import java.io.IOException;
 import javafx.application.Application;

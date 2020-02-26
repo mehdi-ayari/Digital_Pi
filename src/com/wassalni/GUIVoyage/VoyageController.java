@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.wassalni.GUI;
+package com.wassalni.GUIVoyage;
 
 import com.wassalni.entites.Voyage;
 import com.wassalni.services.ServiceVoyage;
@@ -51,12 +51,24 @@ public class VoyageController implements Initializable {
     private Button Map;
     public ObservableList<Voyage> data = FXCollections.observableArrayList();
     ServiceVoyage sv = new ServiceVoyage();
-    
-    
-    
+    public static String dest;
+        Voyage voyageselectionner = new Voyage();
+    int indexProduitSelectionner;
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        TableVoyage.setOnMouseClicked((event) -> {
+            if (event.getClickCount()==2){
+                voyageselectionner = TableVoyage.getItems().get(TableVoyage.getSelectionModel().getSelectedIndex());
+                  //System.out.println("Produit selectionnner"+ProduitSelectionner);
+                  indexProduitSelectionner=TableVoyage.getSelectionModel().getSelectedIndex();
+                  
+            dest = voyageselectionner.getDistination();
+                System.out.println(dest);
+            
+            }
+        });
+        
                      
         try {
             data.addAll(sv.readAll());
@@ -73,10 +85,14 @@ public class VoyageController implements Initializable {
         this.refdate.setCellValueFactory(new PropertyValueFactory<>("date_voyage"));
         this.refreservation.setCellValueFactory(new PropertyValueFactory<>("reservation_id_res"));
         this.refdistination.setCellValueFactory(new PropertyValueFactory<>("distination"));
-
+        //int id = Integer.parseInt(refreservation.getText());
         this.TableVoyage.setItems(data);
         this.TableVoyage.setEditable(true);
         // TODO
+      /*  destination = refdistination.getText();
+                String req = "select destination from reservation where id_res ="+ id;*/
+                
+
     }    
 
     @FXML
@@ -94,5 +110,5 @@ public class VoyageController implements Initializable {
             System.out.println(ex.getMessage());
     }
     }
-    
+ 
 }

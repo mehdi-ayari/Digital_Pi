@@ -3,7 +3,7 @@
 <?import com.teamdev.jxmaps.javafx.MapView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:controller="com.wassalni.GUI.MapController" xmlns:fx="http://javafx.com/fxml">
+<BorderPane fx:controller="com.wassalni.GUIVoyage.MapController" xmlns:fx="http://javafx.com/fxml">
     <center>
         <MapView fx:id="mapView"/>
     </center>
