@@ -33,6 +33,15 @@ public class Reservationbusiness {
         this.date_reservation=date_reservation;
     }
 
+    public Reservationbusiness(Timestamp date_depart, String destination, Timestamp date_reservation, String nom_client_entreprise, String prenom_client_entreprise, String point_depart) {
+        this.date_depart = date_depart;
+        this.destination = destination;
+        this.date_reservation = date_reservation;
+        this.nom_client_entreprise = nom_client_entreprise;
+        this.prenom_client_entreprise = prenom_client_entreprise;
+        this.point_depart = point_depart;
+    }
+
     public Reservationbusiness(int id_res_business, Timestamp date_depart, String destination, int user_id_entreprise, Timestamp date_reservation, String nom_client_entreprise, String prenom_client_entreprise, String point_depart) {
         this.id_res_business = id_res_business;
         this.date_depart = date_depart;
@@ -108,6 +117,11 @@ public class Reservationbusiness {
 
     public void setPoint_depart(String point_depart) {
         this.point_depart = point_depart;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservationbusiness{" + "id_res_business=" + id_res_business + ", date_depart=" + date_depart + ", destination=" + destination + ", user_id_entreprise=" + user_id_entreprise + ", date_reservation=" + date_reservation + ", nom_client_entreprise=" + nom_client_entreprise + ", prenom_client_entreprise=" + prenom_client_entreprise + ", point_depart=" + point_depart + '}';
     }
    
    
