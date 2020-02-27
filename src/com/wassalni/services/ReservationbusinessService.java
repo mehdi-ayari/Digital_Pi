@@ -25,6 +25,7 @@ public class ReservationbusinessService implements IReservationbusiness {
     private Connection con;
     private Statement ste;
     private PreparedStatement ps;
+    private ResultSet rs;
     
 
     public ReservationbusinessService() {
@@ -86,7 +87,14 @@ public class ReservationbusinessService implements IReservationbusiness {
 
     PreparedStatement pre;
         try {
-            pre = con.prepareStatement("UPDATE `reservation_business` SET `date_depart`=?,`destination`=?,`date_reservation`=?,`nom_client_entreprise`=?,`prenom_client_entreprise`=?,`point_depart`=?;");
+            pre = con.prepareStatement("UPDATE `reservation_business` SET"
+                    + " `date_depart`=?,"
+                    + "`destination`=?,"
+                    + "`date_reservation`=?,"
+                    + "`nom_client_entreprise`=?,"
+                    + "`prenon_client_entreprise`=?,"
+                    + "`point_depart`=?"
+                    + " WHERE `id_res_business`=?;");
         
          pre.setTimestamp(1, rb.getDate_depart());
         pre.setString(2, rb.getDestination());
@@ -94,6 +102,8 @@ public class ReservationbusinessService implements IReservationbusiness {
         pre.setString(4, rb.getNom_client_entreprise());
         pre.setString(5, rb.getPrenom_client_entreprise());
         pre.setString(6, rb.getPoint_depart());
+        pre.setInt(7, rb.getId_res_business());
+        pre.execute();
       
             System.out.println("reservation modifiée");
         } catch (SQLException ex) {
@@ -105,30 +115,30 @@ public class ReservationbusinessService implements IReservationbusiness {
 
     @Override
     public List<Reservationbusiness> readAll() throws SQLException {
+        String req ="SELECT * FROM `reservation_business` WHERE 1";
    List<Reservationbusiness> arr=new ArrayList<>();
         try {
-            ste=con.createStatement();
-            ResultSet rs=ste.executeQuery("select * from reservation_business");
+            ps=con.prepareStatement(req);
+            rs = ps.executeQuery();
      while (rs.next()) {                
-              
-               int id=rs.getInt("id_res_business");
-               Timestamp date_debut=rs.getTimestamp("date_depart");
-               String destination=rs.getString("destination");
-               int id_e=rs.getInt("user_id_entreprise");
-               Timestamp date_reservation=rs.getTimestamp("date_reservation");
-               String nom_client_entreprise=rs.getString("nom_client_entreprise");
-               String prenon_client_entreprise=rs.getString("prenon_client_entreprise");
-               String point_depart=rs.getString("point_depart");
+              Reservationbusiness r = new Reservationbusiness();
+               r.setId_res_business(rs.getInt("id_res_business"));
+               r.setDate_depart(rs.getTimestamp("date_depart"));
+               r.setDestination(rs.getString("destination"));
+               r.setUser_id_entreprise(rs.getInt("user_id_entreprise"));
+               r.setDate_reservation(rs.getTimestamp("date_reservation"));
+               r.setNom_client_entreprise(rs.getString("nom_client_entreprise"));
+               r.setPrenom_client_entreprise(rs.getString("prenon_client_entreprise"));
+               r.setPoint_depart(rs.getString("point_depart"));
 
                
-               Reservationbusiness p=new Reservationbusiness(id,date_debut,destination,id_e,date_reservation,nom_client_entreprise,prenon_client_entreprise,point_depart);
-     arr.add(p);
+     arr.add(r);
      }
         } catch (SQLException ex) {
             System.out.println(ex);
         }
     
-    
+        System.out.println(arr.toString()+"\n");
     return arr;
 
     }
