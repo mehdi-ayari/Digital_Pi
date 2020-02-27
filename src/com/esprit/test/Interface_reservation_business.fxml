@@ -14,7 +14,6 @@
       <Accordion layoutX="300.0" layoutY="394.0" />
       <Label layoutX="131.0" layoutY="290.0" text="Date depart" />
       <Label layoutX="131.0" layoutY="344.0" text="Destination" />
-      <TextField fx:id="destination" layoutX="237.0" layoutY="340.0" />
       <DatePicker fx:id="dated" layoutX="247.0" layoutY="286.0" />
       <TextField fx:id="heured" layoutX="475.0" layoutY="288.0" prefHeight="17.0" prefWidth="35.0" />
       <TextField fx:id="minuted" layoutX="589.0" layoutY="288.0" prefHeight="8.0" prefWidth="35.0" />
@@ -56,5 +55,6 @@
       <Label layoutX="529.0" layoutY="292.0" text="Minute" />
       <Label layoutX="747.0" layoutY="93.0" text="Heure" />
       <Label layoutX="848.0" layoutY="95.0" text="Minute" />
+      <TextField fx:id="destination" layoutX="247.0" layoutY="332.0" />
    </children>
 </AnchorPane>
