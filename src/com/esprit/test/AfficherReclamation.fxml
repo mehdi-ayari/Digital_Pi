@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.AfficherReclamationController">
+    <children>
+      <TableView fx:id="table" layoutX="49.0" layoutY="139.0" prefHeight="230.0" prefWidth="373.0">
+        <columns>
+          <TableColumn fx:id="tftitre" prefWidth="152.0" text="Titre" />
+            <TableColumn fx:id="tfdate" prefWidth="142.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button fx:id="details" layoutX="439.0" layoutY="200.0" mnemonicParsing="false" onAction="#showdetails" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #CCCC00;" text="Detail de Reclamation" textFill="#0a0a0a" />
+      <Button layoutX="439.0" layoutY="280.0" mnemonicParsing="false" onAction="#SupprimerReclamation" style="-fx-background-color: #CCCC00;" text="Supprimer Reclamation" />
+      <Label layoutX="281.0" layoutY="79.0" text="Afficher Les Reclamations">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Button fx:id="tfadd" layoutX="439.0" layoutY="156.0" mnemonicParsing="false" onAction="#roadToajout" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #CCCC00;" text="Ajouter Reclamation" textFill="#0d0d0d" />
+      <Button fx:id="tfmodif" layoutX="439.0" layoutY="239.0" mnemonicParsing="false" onAction="#GoModif" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #CCCC00#CCCC00;" text="Modifier Reclamation" />
+      <MenuButton layoutX="-143.0" layoutY="-18.0" mnemonicParsing="false" text="MenuButton">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <ButtonBar prefHeight="46.0" prefWidth="657.0" style="-fx-background-color: #CCCC00;" />
+      <ButtonBar layoutX="-4.0" layoutY="478.0" prefHeight="46.0" prefWidth="658.0" style="-fx-background-color: #CCCC00;">
+         <buttons>
+            <Button fx:id="contactus1" mnemonicParsing="false" onAction="#GoToAContactus1" style="-fx-background-color: BLACK;" text="About us" textFill="WHITE" />
+            <Button mnemonicParsing="false" style="-fx-background-color: BLACK;" text="Contact us" textFill="WHITE" />
+         </buttons>
+      </ButtonBar>
+      <Label fx:id="tfcount" layoutX="378.0" layoutY="369.0" text="Label" />
+      <ImageView fitHeight="89.0" fitWidth="150.0" layoutX="-15.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imageRec/wassalni%20logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="220.0" layoutY="369.0" text="Nombre des Reclamations:" />
+      <Button fx:id="PDF" layoutX="439.0" layoutY="319.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #CCCC00;" text="Generer PDF" textFill="#0d0d0d" />
+      <TextField fx:id="rechnom" layoutX="74.0" layoutY="106.0" onKeyTyped="#smartsearchPrenom" prefHeight="25.0" prefWidth="158.0" />
+      <Label layoutX="48.0" layoutY="110.0" prefHeight="17.0" prefWidth="52.0" text="Titre:">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+      </Label>
+   </children>
+    
+</AnchorPane>
