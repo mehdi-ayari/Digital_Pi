@@ -8,6 +8,7 @@ package com.wassalni.services;
 //import java.util.logging.Level;
 
 
+import com.wassalni.Iservices.IVoyage;
 import com.wassalni.entites.Voyage;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -27,7 +28,7 @@ import java.sql.ResultSet;
  *
  * @author House
  */
-public class ServiceVoyage {
+public class ServiceVoyage implements IVoyage{
     
     public Voyage findbyTitre(int reservation_id_res) {
         
@@ -73,6 +74,7 @@ public class ServiceVoyage {
     }
    
    
+    @Override
     public void ajouter(Voyage v) throws SQLException {
         ste = con.createStatement();
         String requeteInsert = "INSERT INTO `wassalni`.`voyage` (`distance`, `date_voyage`, `reservation_id_res`) VALUES ('" + v.getDistance()+ "', CURRENT_TIMESTAMP(), '" + v.getReservation_id_res()+ "');";
@@ -80,6 +82,7 @@ public class ServiceVoyage {
     }
             
 
+    @Override
     public boolean delete(int id_news) throws SQLException {
         PreparedStatement pre=con.prepareStatement("DELETE FROM `wassalni`.`voyage` WHERE id_news=? ;");
                  pre.setInt(1, id_news);
@@ -92,6 +95,7 @@ public class ServiceVoyage {
     }
 
     
+    @Override
     public List<Voyage> readAll() throws SQLException {
     List<Voyage> Voy=new ArrayList<>();
     ste=con.createStatement();

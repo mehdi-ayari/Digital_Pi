@@ -41,6 +41,7 @@ public class MapController implements Initializable {
     private ServiceVoyage V = new ServiceVoyage();
     public ObservableList<Voyage> data = FXCollections.observableArrayList();
     String desti=  VoyageController.dest;
+    LatLng location = new LatLng(36.8992777,10.1874516);
     
 
     @Override
@@ -79,6 +80,8 @@ public class MapController implements Initializable {
                     Marker mark = new Marker(map);
                     
                     mark.setPosition(origin);
+                    
+                    map.setCenter(new LatLng(36.8992777,10.1874516));
                      
                      
                     performGeocode(desti);

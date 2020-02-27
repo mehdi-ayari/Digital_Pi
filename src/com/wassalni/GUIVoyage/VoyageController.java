@@ -103,12 +103,13 @@ public class VoyageController implements Initializable {
             
             Scene scene = new Scene(root);
             Stage primaryStage = new Stage();
-            primaryStage.setTitle("WASSALNI!");
+            primaryStage.setTitle("Map");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
     }
     }
+    
  
 }
