@@ -5,10 +5,10 @@
         <group>
             <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/esprit/gui/ChartController.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/esprit/gui/HomePage.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/esprit/gui/AccNewsController.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/wassalni/services/ServiceNews.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/esprit/gui/ConsulterController.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/esprit/gui/AddNewsController.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/Digital_Pi/src/com/wassalni/utilits/ControleSaisie.java</file>
         </group>
     </open-files>
 </project-private>

@@ -40,7 +40,20 @@
                </font>
             </Label>
             <TextField fx:id="tfDesc" layoutX="94.0" layoutY="217.0" prefHeight="132.0" prefWidth="190.0" promptText="DESCRIPTION" />
-            <Label fx:id="erreurtitre" layoutX="177.0" layoutY="185.0" text="Label" />
+            <Label fx:id="erreurtitre" layoutX="95.0" layoutY="184.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <Label fx:id="erreurdesc" layoutX="95.0" layoutY="349.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="erreurimage" layoutX="95.0" layoutY="415.0" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <AnchorPane id="AnchorPane" layoutX="306.0" prefHeight="652.0" prefWidth="492.0" styleClass="mainFxmlClass">

@@ -86,6 +86,12 @@ public class AddNewsController implements Initializable {
     public static News myNews;
     
     boolean titreok=true;
+    boolean descok=true;
+    boolean imageok=true;
+    @FXML
+    private Label erreurdesc;
+    @FXML
+    private Label erreurimage;
 
     public TableColumn<News, String> getResTitre() {
         return resTitre;
@@ -148,7 +154,12 @@ public class AddNewsController implements Initializable {
 
      // try {
         ControleSaisie.effacerControleSaisie(erreurtitre);
-        titreok = ControleSaisie.controleTextFieldVide(tfTitre, "ECRIRE....", erreurtitre);
+        ControleSaisie.effacerControleSaisie(erreurdesc);
+        ControleSaisie.effacerControleSaisie(erreurimage);
+        titreok = ControleSaisie.controleTextFieldVide(tfTitre, "TITLE MISSED..", erreurtitre);
+        descok = ControleSaisie.controleTextFieldVide(tfDesc, "DESC MISSED..", erreurdesc);
+        imageok = ControleSaisie.controleTextFieldVide(tfImage, "IMAGE MISSED..", erreurimage);
+        
             String titre = tfTitre.getText();
             String desc = tfDesc.getText();
             String image = tfImage.getText();

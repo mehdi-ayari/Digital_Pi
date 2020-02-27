@@ -9,6 +9,7 @@ import com.wassalni.entites.Comment;
 import com.wassalni.entites.News;
 import com.wassalni.services.ServiceComment;
 import com.wassalni.services.ServiceNews;
+import com.wassalni.utilits.ControleSaisie;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -34,6 +35,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import com.wassalni.utilits.ControleSaisie;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -50,7 +53,7 @@ public class ConsulterController implements Initializable {
     private Button cBack;
     private TextArea tfComment;
     @FXML
-    private TextArea tfcomment;
+    private TextField tfcomment;
     @FXML
     private Button bComment;
     @FXML
@@ -70,6 +73,11 @@ public class ConsulterController implements Initializable {
     private TableColumn<Comment, String> rescomment;
     @FXML
     private TableColumn<?, ?> resnom;
+    @FXML
+    private Button meteo;
+    @FXML
+    private Label erreurcomment;
+    boolean commentok=true;
 
     public void setRescomment(TableColumn<Comment, String> rescomment) {
         this.rescomment = rescomment;
@@ -93,6 +101,7 @@ public class ConsulterController implements Initializable {
         this.tabcomment.setItems(datac);
         this.tabcomment.setEditable(true);
         this.rescomment.setCellFactory(TextFieldTableCell.forTableColumn());
+        
     }
 
     public void setContent(int id) {
@@ -130,12 +139,26 @@ public class ConsulterController implements Initializable {
         String comment = tfcomment.getText();
         ServiceComment sc = new ServiceComment();
         Comment c = new Comment(comment);
+        ControleSaisie.effacerControleSaisie(erreurcomment);
+        commentok = ControleSaisie.controleTextFieldVide(tfcomment, "COMMENT MISSED..", erreurcomment);
+        //commentok = ControleSaisie.controleTextFieldOnlyLetters(tfcomment, "", erreurcomment);
         sc.ajouter(c);
          datac.clear();
-    datac.addAll(sc.readID(c));
+    datac.addAll(sc.getComments(AddNewsController.myNews));
+            this.rescomment.setCellValueFactory(new PropertyValueFactory<>("text"));
         // tfComment.setText(comment);
         //  tfComment.appendText(comment + "\n");
         // sc.readAll();
     }
+
+    @FXML
+    private void meteoac(ActionEvent event) throws IOException {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("owm.fxml"));
+        Parent root = loader.load();
+        OwmController spc = loader.getController();
+      
+        meteo.getScene().setRoot(root);   
+    }
+    
 
 }

@@ -33,7 +33,7 @@ import com.wassalni.entites.WeatherModel;
  public class OwmController extends Application {  
      
    WeatherModel wm;  
-   int cityID=3204623;  
+   int cityID=2464461;  
    
    @FXML  
    private ToggleGroup cityTg;  
@@ -72,9 +72,9 @@ import com.wassalni.entites.WeatherModel;
      iconLbl.setGraphic(new ImageView("http://openweathermap.org/img/w/"+wm.getIconID()+".png"));  
      iconLbl.setScaleX(1.5);  
      iconLbl.setScaleY(1.5);  
-     refreshBtn.setGraphic(new ImageView("/recherche.png"));  
-     refreshBtn.setScaleX(0.8);  
-     refreshBtn.setScaleY(0.8);  
+     //refreshBtn.setGraphic(new ImageView("/recherche.png"));  
+    // refreshBtn.setScaleX(0.8);  
+     //refreshBtn.setScaleY(0.8);  
      timeLbl.setText(new java.util.Date().toString());  
      cityTg.selectedToggleProperty().addListener((observable,  
        oldValue, newValue) -> {  
@@ -108,14 +108,14 @@ import com.wassalni.entites.WeatherModel;
        
        ToggleButton tBtn = (ToggleButton) newValue;  
        switch(tBtn.getText()){  
-         case "Bajina Basta":  
-           cityID=3204623; // City IDs provided by OWM ( not WOEID )  
+         case "Tunis":  
+           cityID=2464470; // City IDs provided by OWM ( not WOEID )  
            break;  
-         case "Belgrade":  
-           cityID=792680;  
+         case "Hammamet":  
+           cityID=2473744;  
            break;  
-         case "Zrenjanin":  
-           cityID=783814;  
+         case "Sousse":  
+           cityID=2464915;  
            break;  
        }  
        initialize();      

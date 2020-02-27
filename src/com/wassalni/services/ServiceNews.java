@@ -78,12 +78,13 @@ public class ServiceNews implements INews<News> {
         }
     }
 
-    public void ajouter1(News n) throws SQLException {
+    public boolean ajouter1(News n) throws SQLException {
         PreparedStatement pre = con.prepareStatement("INSERT INTO `wassalni`.`news` ( `titre`, `desc`,  `image`) VALUES ( ?, ?, ?);");
         pre.setString(1, n.getTitre());
         pre.setString(2, n.getDesc());
         pre.setString(3, n.getImage());
         pre.executeUpdate();
+        return true;
     }
 
     @Override
