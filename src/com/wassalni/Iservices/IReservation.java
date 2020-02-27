@@ -15,6 +15,7 @@ import java.util.List;
  * @author Mahdi
  */
 public interface IReservation {
+    
     void ajouter(Reservation r) throws SQLException;
     boolean delete(Reservation r) throws SQLException;
     boolean update(Reservation r) throws SQLException;
