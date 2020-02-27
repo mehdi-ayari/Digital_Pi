@@ -40,6 +40,7 @@
                </font>
             </Label>
             <TextField fx:id="tfDesc" layoutX="94.0" layoutY="217.0" prefHeight="132.0" prefWidth="190.0" promptText="DESCRIPTION" />
+            <Label fx:id="erreurtitre" layoutX="177.0" layoutY="185.0" text="Label" />
          </children>
       </Pane>
       <AnchorPane id="AnchorPane" layoutX="306.0" prefHeight="652.0" prefWidth="492.0" styleClass="mainFxmlClass">

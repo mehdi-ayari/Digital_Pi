@@ -5,6 +5,7 @@
  */
 package com.esprit.gui;
 
+import com.wassalni.entites.WeatherModel;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -18,9 +19,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-//import net.aksingh.owmjapis.OpenWeatherMap;
-
-//import org.json.JSONException;
+import net.aksingh.owmjapis.OpenWeatherMap;
+import org.json.JSONException;
 
 /**
  *
@@ -47,9 +47,9 @@ public class HomePage extends Application {
  
     public static void main(String[] args)  {
         
-      //  WeatherModel n= new WeatherModel();
-        //n.getWeather();
-        //System.out.println(n.toString());
+      WeatherModel n= new WeatherModel();
+        n.getWeather();
+        System.out.println(n.toString());
    
        launch(args);
     }

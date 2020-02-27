@@ -9,6 +9,7 @@ package com.esprit.gui;
 
 import com.wassalni.entites.News;
 import com.wassalni.services.ServiceNews;
+import com.wassalni.utilits.ControleSaisie;
 import java.awt.AWTException;
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +30,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
@@ -60,7 +62,7 @@ public class AddNewsController implements Initializable {
     private TextField tfTitre;
     @FXML
     private TextField tfDesc;
-        public ObservableList<News> data = FXCollections.observableArrayList();
+      public ObservableList<News> data = FXCollections.observableArrayList();
     @FXML
     private TableView<News> tabviewnews;
     @FXML
@@ -79,6 +81,11 @@ public class AddNewsController implements Initializable {
     private Button bMail;
     @FXML
     private Button bStat;
+    @FXML
+    private Label erreurtitre;
+    public static News myNews;
+    
+    boolean titreok=true;
 
     public TableColumn<News, String> getResTitre() {
         return resTitre;
@@ -140,6 +147,8 @@ public class AddNewsController implements Initializable {
 
 
      // try {
+        ControleSaisie.effacerControleSaisie(erreurtitre);
+        titreok = ControleSaisie.controleTextFieldVide(tfTitre, "ECRIRE....", erreurtitre);
             String titre = tfTitre.getText();
             String desc = tfDesc.getText();
             String image = tfImage.getText();
@@ -179,6 +188,7 @@ public class AddNewsController implements Initializable {
     @FXML
     private void select(ActionEvent event) {
          News n= tabviewnews.getSelectionModel().getSelectedItem();
+         myNews = n;
         tfTitre.setText(n.getTitre());
         tfDesc.setText(n.getDesc());
         tfImage.setText(n.getImage()); 
