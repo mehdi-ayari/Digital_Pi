@@ -93,7 +93,7 @@ public class reservation_businessController implements Initializable{
     @FXML
     private TableView<Reservationbusiness> tablereservation;
     @FXML
-    private TableColumn<?, ?> dateres;
+    private TableColumn<Reservationbusiness, Timestamp> dateres;
 
     /**
      * Initializes the controller class.
@@ -167,8 +167,11 @@ public class reservation_businessController implements Initializable{
         Reservationbusiness rb = new Reservationbusiness();
         rb.setDate_depart(date_depart);
         rb.setDestination(modifdestination.getText());
+        System.out.println("destination ajouter");
+        System.out.println(modifdestination.getText());
         rb.setDate_reservation(datr);
         rb.setPoint_depart(depart.getText());
+
         rb.setNom_client_entreprise(modifnom.getText());
         rb.setPrenom_client_entreprise(modifprenom.getText());
         
