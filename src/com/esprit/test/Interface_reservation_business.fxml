@@ -41,7 +41,7 @@
       <Label layoutX="808.0" layoutY="57.0" text="Date depart" />
       <Label layoutX="808.0" layoutY="140.0" text="Destination" />
       <TextField fx:id="modifdestination" layoutX="914.0" layoutY="136.0" />
-      <DatePicker fx:id="modifdated" layoutX="906.0" layoutY="53.0" />
+      <DatePicker fx:id="modifdated" layoutX="906.0" layoutY="53.0" onKeyReleased="#controledate" />
       <TextField fx:id="modifheured" layoutX="914.0" layoutY="94.0" prefHeight="17.0" prefWidth="35.0" />
       <TextField fx:id="modifminuted" layoutX="1010.0" layoutY="95.0" prefHeight="8.0" prefWidth="35.0" />
       <Label layoutX="808.0" layoutY="182.0" text="Nom client" />
@@ -56,12 +56,5 @@
       <Label layoutX="860.0" layoutY="97.0" text="Heure" />
       <Label layoutX="961.0" layoutY="99.0" text="Minute" />
       <TextField fx:id="destination" layoutX="251.0" layoutY="365.0" onKeyReleased="#controldestination" />
-      <Label fx:id="controlenom" layoutX="436.0" layoutY="411.0" text="Nom client obligatoire" textFill="#d30b0b" />
-      <Label fx:id="controleprenom" layoutX="436.0" layoutY="453.0" text="Prenom client obligatoire" textFill="#d30b0b" />
-      <Label fx:id="controlepoint" layoutX="436.0" layoutY="496.0" text="Point de depart obligatoire" textFill="#d30b0b" />
-      <Label fx:id="controledestination" layoutX="436.0" layoutY="369.0" text="Destinaton obligatoire" textFill="#d30b0b" />
-      <Label fx:id="controleheure" layoutX="536.0" layoutY="317.0" text="[00-23]" textFill="#ee1111" />
-      <Label fx:id="controleminute" layoutX="707.0" layoutY="317.0" text="[00-60]" textFill="#ee1111" />
-      <Label fx:id="controledate" layoutX="271.0" layoutY="344.0" text="Date obligatoire" textFill="#d30b0b" />
    </children>
 </AnchorPane>
