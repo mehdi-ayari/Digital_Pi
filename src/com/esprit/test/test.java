@@ -6,10 +6,15 @@
 package com.esprit.test;
 
 import com.wassalni.entites.Reservation;
+import com.wassalni.entites.Reservationbusiness;
 import com.wassalni.entites.Type;
 import com.wassalni.services.ReservationService;
+import com.wassalni.services.ReservationbusinessService;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,6 +40,22 @@ public class test extends Application {
         
         stage.setScene(scene1);
         stage.show();
+          Timestamp datr = new Timestamp(System.currentTimeMillis());
+//
+        ReservationbusinessService ser = new ReservationbusinessService();
+        
+        Reservationbusiness rb1=new Reservationbusiness(datr, "mouuuuuuuuuuuuuuuuuuuuurouj2", datr, "kj", "jkgk", "khk");
+//        ser.ajouter(rb1);
+        rb1.setPoint_depart("zeineb");
+        
+        ser.update(rb1);
+//        try {
+//            ser.ajouter(rb1);
+//            List<Reservationbusiness> list = ser.readAll();
+//            System.out.println(list);        
+//        } catch (SQLException ex) {
+//
+//        }
         
         ////         ReservationService ser = new ReservationService();
 ////        Reservation r1 = new Reservation("mourouj 2","2/12/566",Type.valueOf("Taxi"),15.0f,1,1);
@@ -56,5 +77,5 @@ public class test extends Application {
      */
     public static void main(String[] args) {
        launch(args);
-       
+             
 }}
