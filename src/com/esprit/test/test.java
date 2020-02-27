@@ -25,15 +25,15 @@ public class test extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Interface_reservation_client.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("Interface_reservation_client.fxml"));
         Parent root1 = FXMLLoader.load(getClass().getResource("Interface_reservation_business.fxml"));
 
     
         Scene scene1 = new Scene(root1);
-        Scene scene = new Scene(root);
+//        Scene scene = new Scene(root);
         
         
-        stage.setScene(scene);
+        stage.setScene(scene1);
         stage.show();
         
         ////         ReservationService ser = new ReservationService();
