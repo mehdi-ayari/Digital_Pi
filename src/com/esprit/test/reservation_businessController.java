@@ -108,7 +108,7 @@ public class reservation_businessController implements Initializable{
         datedepart.setCellValueFactory(new PropertyValueFactory("date_depart") );
         destinationview.setCellValueFactory(new PropertyValueFactory("destination") );
         nomclient.setCellValueFactory(new PropertyValueFactory("nom_client_entreprise") );
-        prenomclient.setCellValueFactory(new PropertyValueFactory("prenon_client_entreprise") );
+        prenomclient.setCellValueFactory(new PropertyValueFactory("prenom_client_entreprise") );
         pointdepart.setCellValueFactory(new PropertyValueFactory("point_depart") );
         dateres.setCellValueFactory(new PropertyValueFactory("date_reservation") );
         tablereservation.getItems().addAll(reservations);
@@ -119,27 +119,34 @@ public class reservation_businessController implements Initializable{
               if (event.getClickCount() == 2) {
                   //activer les Buttons 
                   reverseButton(false);
-                  
-                  Timestamp stamp = Timestamp.valueOf(datedepart.getText());
-                          
-                  String date = String.valueOf(stamp);
-                      System.out.println(date);
-                      System.out.println(stamp);
-                  //String mjr=date.substring(0,11);
-//                  String heure=date.substring(12,14);
-//                  String minute=date.substring(15,17);
-                 // LocalDate ndate = LocalDate.parse(date.substring(0,11));
-                 
                   Reservationbusinessselectionner = tablereservation.getItems().get(tablereservation.getSelectionModel().getSelectedIndex());
                   indexreservationbusines=tablereservation.getSelectionModel().getSelectedIndex();
+                  String date = Reservationbusinessselectionner.getDate_depart().toString();
+//                  System.out.println(date);
+//                  String date = String.valueOf(stamp);
+//                  String SEPARATEUR = "-";
+//                  
+//                  String mja[]=date.split(SEPARATEUR);
+//                  String mja1 = mja[0]+"/"+mja[1]+"/"+mja[2];
+//                  LocalDate daten = LocalDate.parse(mja1);
+//                  System.out.println(mja1);
+
+//                      System.out.println(date);
+//                      System.out.println(stamp);
+                  
+                  String heure=date.substring(11,13);
+                  String minute=date.substring(14,16);
+                  LocalDate ndate = LocalDate.parse(date.substring(0,10));
+//                 
+//                  Reservationbusinessselectionner = tablereservation.getItems().get(tablereservation.getSelectionModel().getSelectedIndex());
+//                  indexreservationbusines=tablereservation.getSelectionModel().getSelectedIndex();
                   modifdestination.setText(Reservationbusinessselectionner.getDestination());
                  modifdepart.setText(Reservationbusinessselectionner.getPoint_depart());
-//                  modifnom.setText(Reservationbusinessselectionner.);
-//                  modifprenom.setText(Reservationbusinessselectionner.);
-                  modifdated.setValue(LocalDate.parse(date.substring(0,10)));
+                  modifdated.setValue(ndate);
                   modifheured.setText(date.substring(11,13));
                   modifminuted.setText(date.substring(14,16));
-                 
+                  modifnom.setText(Reservationbusinessselectionner.getNom_client_entreprise());
+                  modifprenom.setText(Reservationbusinessselectionner.getPrenom_client_entreprise());
                   
                
                  
@@ -162,18 +169,16 @@ public class reservation_businessController implements Initializable{
         LocalDate d = dated.getValue();
         String mdy= d.toString();
         String newdate = mdy+" "+heure+":"+min+":"+"00";
-        Timestamp date_depart=Timestamp.valueOf(newdate) ;
+        Timestamp datedepart=Timestamp.valueOf(newdate) ;
         
         Reservationbusiness rb = new Reservationbusiness();
-        rb.setDate_depart(date_depart);
-        rb.setDestination(modifdestination.getText());
-        System.out.println("destination ajouter");
-        System.out.println(modifdestination.getText());
+        rb.setDate_depart(datedepart);
+        rb.setDestination(destination.getText());
         rb.setDate_reservation(datr);
         rb.setPoint_depart(depart.getText());
 
-        rb.setNom_client_entreprise(modifnom.getText());
-        rb.setPrenom_client_entreprise(modifprenom.getText());
+        rb.setNom_client_entreprise(nom.getText());
+        rb.setPrenom_client_entreprise(prenom.getText());
         
         
         try {
@@ -183,29 +188,24 @@ public class reservation_businessController implements Initializable{
         }
         
     }
-    public void ref() {
-        tablereservation.getItems().clear();
-        try {
-            tablereservation.getItems().addAll(rsb.readAll());
-        } catch (SQLException ex) {
-        }
-    }
+    
+    
 
     @FXML
     private void Onmodifier(ActionEvent event) {
-       String heure = heured.getText();
-        String min = minuted.getText();
-        LocalDate d = dated.getValue();
+       String heure = modifheured.getText();
+        String min = modifminuted.getText();
+        LocalDate d = modifdated.getValue();
         String mdy= d.toString();
-        String newdate = mdy+"-"+heure+"-"+min+"-"+"00";
+        String newdate = mdy+" "+heure+":"+min+":"+"00";
         Timestamp date_depart=Timestamp.valueOf(newdate) ;
        Timestamp datr = new Timestamp(System.currentTimeMillis());
        idR = Reservationbusinessselectionner.getId_res_business();
        System.out.println(idR);
        Reservationbusinessselectionner.setId_res_business(idR);
        Reservationbusinessselectionner.setDestination(modifdestination.getText());
-       Reservationbusinessselectionner.setDate_depart(datr);
-       Reservationbusinessselectionner.setDate_reservation(date_depart);
+       Reservationbusinessselectionner.setDate_depart(date_depart);
+       Reservationbusinessselectionner.setDate_reservation(datr);
        Reservationbusinessselectionner.setPoint_depart(modifdepart.getText());
        Reservationbusinessselectionner.setNom_client_entreprise(modifnom.getText());
        Reservationbusinessselectionner.setPrenom_client_entreprise(modifprenom.getText());
@@ -219,6 +219,27 @@ public class reservation_businessController implements Initializable{
                         
     }
     
+    public void ref() {
+        tablereservation.getItems().clear();
+        try {
+            tablereservation.getItems().addAll(rsb.readAll());
+        } catch (SQLException ex) {
+        }
     
-    
+}
+
+    @FXML
+    private void onsupprimer(ActionEvent event) {
+         Reservationbusiness rb = new Reservationbusiness();
+        rb.setId_res_business(Reservationbusinessselectionner.getId_res_business());
+        
+        
+        
+            try {
+                rsb.delete(rb);
+                tablereservation.getItems().remove(Reservationbusinessselectionner);
+                
+            } catch (SQLException ex) {
+            }
+    }
 }
