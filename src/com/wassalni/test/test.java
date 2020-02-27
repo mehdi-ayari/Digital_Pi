@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.esprit.test;
+package com.wassalni.test;
 
+import com.wassalni.entites.User;
+import com.wassalni.services.ChauffeurService;
+import com.wassalni.services.Role;
+import com.wassalni.services.UserService;
+import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,10 +21,10 @@ import javafx.stage.Stage;
  * @author Mahdi
  */
 public class test extends Application {
-    
+   
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/wassalni/gui/signIn.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -30,8 +35,9 @@ public class test extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         launch(args);
+        
     }
     
 }
