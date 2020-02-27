@@ -11,6 +11,7 @@ import com.wassalni.utilits.DataBase;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
@@ -60,6 +61,29 @@ public class ChauffeurService implements IChauffeur<User>{
     @Override
     public List readAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public Boolean findUserByEmail(String email) {
+        User user = null;
+        String req = "select * from User where mail =?";
+        PreparedStatement preparedStatement;
+        try {
+         preparedStatement = con.prepareStatement(req);
+            preparedStatement.setString(1, email );
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+               user=new User();
+               user.setId(resultSet.getInt("id"));
+               user.setMail(resultSet.getString("mail"));
+                 
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        if (user == null) {
+            return false;
+        }
+        return true;
+    
     }
 
   

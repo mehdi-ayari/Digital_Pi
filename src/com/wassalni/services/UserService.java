@@ -63,7 +63,7 @@ public class UserService {
                  user.setId(rs.getInt("id"));
                  user.setNom(rs.getString("nom"));
                  user.setPrenom(rs.getString("prenom"));
-                 user.setMail(rs.getString("email"));
+                 user.setMail(rs.getString("mail"));
                  user.setPhoto(rs.getString("photo"));
                  user.setTelephone(rs.getInt("Telephone"));
                  user.setRole(Role.valueOf(rs.getString("role")));
