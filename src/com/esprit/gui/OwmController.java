@@ -154,7 +154,7 @@ import javafx.scene.web.WebView;
                 Stage stage = (Stage) node.getScene().getWindow();
                 stage.close();
                 
-                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("consulter.fxml")));
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("accueil.fxml")));
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException ex) {
