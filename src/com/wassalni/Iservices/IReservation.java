@@ -5,6 +5,9 @@
  */
 package com.wassalni.Iservices;
 
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author Mahdi
