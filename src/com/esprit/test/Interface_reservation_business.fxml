@@ -15,19 +15,20 @@
       <Label layoutX="131.0" layoutY="290.0" text="Date depart" />
       <Label layoutX="131.0" layoutY="344.0" text="Destination" />
       <TextField fx:id="destination" layoutX="237.0" layoutY="340.0" />
-      <DatePicker fx:id="dated" layoutX="237.0" layoutY="286.0" />
+      <DatePicker fx:id="dated" layoutX="247.0" layoutY="286.0" />
       <TextField fx:id="heured" layoutX="475.0" layoutY="288.0" prefHeight="17.0" prefWidth="35.0" />
       <TextField fx:id="minuted" layoutX="589.0" layoutY="288.0" prefHeight="8.0" prefWidth="35.0" />
       <Button fx:id="btnajouter" layoutX="184.0" layoutY="516.0" mnemonicParsing="false" onAction="#onajouter" text="Ajouter" />
-      <TableView fx:id="tablereservation" layoutX="14.0" layoutY="39.0" prefHeight="200.0" prefWidth="651.0">
+      <TableView fx:id="tablereservation" layoutX="14.0" layoutY="36.0" prefHeight="200.0" prefWidth="686.0">
         <columns>
           <TableColumn fx:id="datedepart" prefWidth="75.0" text="Date depart" />
           <TableColumn fx:id="destinationview" prefWidth="75.0" text="Destination" />
-            <TableColumn fx:id="nomclient" prefWidth="96.0" text="Nom client" />
-            <TableColumn fx:id="prenomclient" prefWidth="110.0" text="Prenom client" />
-            <TableColumn fx:id="pointdepart" prefWidth="108.0" text="Point de depart" />
-            <TableColumn fx:id="nomchauffeur" prefWidth="96.0" text="Nom chauffeur" />
-            <TableColumn fx:id="prenomchauffeur" prefWidth="96.0" text="Prenom chauffeur" />
+            <TableColumn fx:id="nomclient" prefWidth="77.0" text="Nom client" />
+            <TableColumn fx:id="prenomclient" prefWidth="95.0" text="Prenom client" />
+            <TableColumn fx:id="pointdepart" prefWidth="100.0" text="Point de depart" />
+            <TableColumn fx:id="nomchauffeur" prefWidth="97.0" text="Nom chauffeur" />
+            <TableColumn fx:id="prenomchauffeur" prefWidth="91.0" text="Prenom chauffeur" />
+            <TableColumn fx:id="dateres" prefWidth="74.0" text="Date reservation" />
         </columns>
       </TableView>
       <Label layoutX="131.0" layoutY="386.0" text="Nom client" />
