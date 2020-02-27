@@ -8,8 +8,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="174.0" prefWidth="397.0" style="-fx-background-color: #fdff9f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.OwmController">
-   <AnchorPane layoutY="6.0" prefHeight="34.0" prefWidth="400.0" style="-fx-background-color: #000000;" />
+<AnchorPane id="AnchorPane" prefHeight="170.0" prefWidth="346.0" style="-fx-background-color: #fdff9f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.OwmController">
+   <AnchorPane layoutY="6.0" prefHeight="34.0" prefWidth="400.0" style="-fx-background-color: #000000;">
+      <children>
+         <Button fx:id="back" layoutX="361.0" layoutY="4.0" mnemonicParsing="false" onAction="#backkk" prefHeight="25.0" prefWidth="13.0" style="-fx-background-color: #000000;" text="BACK" textFill="#fffdfd" />
+      </children></AnchorPane>
    
     <HBox alignment="BASELINE_CENTER" spacing="20" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">  
      <fx:define>  

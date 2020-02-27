@@ -36,7 +36,10 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import com.wassalni.utilits.ControleSaisie;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -153,11 +156,22 @@ public class ConsulterController implements Initializable {
 
     @FXML
     private void meteoac(ActionEvent event) throws IOException {
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("owm.fxml"));
-        Parent root = loader.load();
-        OwmController spc = loader.getController();
-      
-        meteo.getScene().setRoot(root);   
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("owm.fxml"));
+//        Parent root = loader.load();
+//        OwmController spc = loader.getController();
+//      
+//        meteo.getScene().setRoot(root);   
+try {
+               Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("owm.fxml")));
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
     }
     
 

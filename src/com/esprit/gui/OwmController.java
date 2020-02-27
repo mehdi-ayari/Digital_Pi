@@ -7,13 +7,17 @@ package com.esprit.gui;
 
 
 import com.wassalni.entites.WeatherModel;
+import java.io.IOException;
  import java.net.URL;  
  import java.util.logging.Level;  
  import java.util.logging.Logger;  
  import javafx.application.Application;  
  import javafx.beans.value.ObservableValue;  
+import javafx.event.ActionEvent;
  import javafx.fxml.FXML;  
  import javafx.fxml.FXMLLoader;  
+import javafx.scene.Node;
+import javafx.scene.Parent;
  import javafx.scene.Scene;  
  import javafx.scene.control.Button;  
  import javafx.scene.control.Label;  
@@ -22,6 +26,9 @@ import com.wassalni.entites.WeatherModel;
  import javafx.scene.control.ToggleGroup;  
  import javafx.scene.image.ImageView;  
  import javafx.scene.layout.AnchorPane;  
+import javafx.scene.layout.HBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
  import javafx.stage.Stage;  
 
  import org.json.JSONException;  
@@ -55,12 +62,26 @@ import com.wassalni.entites.WeatherModel;
    private Button refreshBtn;  
    @FXML  
    private Label timeLbl;  
+    @FXML
+    private Label celsiusLbl;
+    @FXML
+    private HBox botBox;
+    @FXML
+    private Label djoLbl;
+    @FXML
+    private Label owmLbl;
+    @FXML
+    private Button back;
+    private WebView WebView;
+    private WebEngine engine;
      
    @FXML  
    private void initialize() throws ClassNotFoundException, JSONException {  
        
      wm = new WeatherModel(cityID);  
      System.out.println(wm.toString());  
+     
+
        
      cityNameLbl.textProperty().bindBidirectional(wm.cityNameProperty());  
      descriptionLbl.textProperty().bindBidirectional(wm.descriptionProperty());  
@@ -125,6 +146,22 @@ import com.wassalni.entites.WeatherModel;
     public void start(Stage primaryStage) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @FXML
+    private void backkk(ActionEvent event) throws IOException {
+        try {
+               Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("consulter.fxml")));
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+    }
+    
      
  }  
 

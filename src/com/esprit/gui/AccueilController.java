@@ -5,6 +5,7 @@
  */
 package com.esprit.gui;
 
+import static com.esprit.gui.AddNewsController.myNews;
 import com.wassalni.entites.News;
 import com.wassalni.services.ServiceNews;
 import java.io.IOException;
@@ -20,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -31,68 +33,43 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author ASUS
  */
-public class AccNewsController implements Initializable {
+public class AccueilController implements Initializable {
 
-     ServiceNews sn = new ServiceNews();
-   private int id;
-    @FXML
-    private TextField tfTitre;
-    @FXML
-    private TextField tfImage;
-    @FXML
-    private TextField tfDesc;
+      ServiceNews sn = new ServiceNews();
+   private int id; 
     public ObservableList<News> data = FXCollections.observableArrayList();
     @FXML
     private TableView<News> tabviewnews;
     @FXML
     private TableColumn<News, String> resTitre;
     @FXML
-    private TableColumn<News, String>resDesc;
-   @FXML
-    private TableColumn <News, String> resImage;
+    private TableColumn<News, String> resDesc;
+    @FXML
+    private TableColumn<News, String> resImage;
     @FXML
     private TextField tfsearch;
-     @FXML
-    private ImageView pdp;
     @FXML
     private Button bConsulter;
     @FXML
-    private Button meteo;
-    
-    public TableColumn<News, String> getResTitre() {
-        return resTitre;
-    }
+    private Button bmeteo;
+    @FXML
+    private Button bYoutube;
+    @FXML
+    private ImageView pdp;
 
-    public void setResTitre(TableColumn<News, String> resTitre) {
-        this.resTitre = resTitre;
-    }
-
-    public TableColumn<News, String> getResDesc() {
-        return resDesc;
-    }
-
-    public void setResDesc(TableColumn<News, String> resDesc) {
-        this.resDesc = resDesc;
-    }
-
-    public TableColumn<News, String> getResImage() {
-        return resImage;
-    }
-
-    public void setResImage(TableColumn<News, String> resImage) {
-        this.resImage = resImage;
-    }
-    
-     @Override
+    /**
+     * Initializes the controller class.
+     */
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-             
+              
         try {
             data.addAll(sn.readAll());
            
@@ -112,30 +89,19 @@ public class AccNewsController implements Initializable {
          this.resTitre.setCellFactory(TextFieldTableCell.forTableColumn());
          this.resDesc.setCellFactory(TextFieldTableCell.forTableColumn());
          this.resImage.setCellFactory(TextFieldTableCell.forTableColumn());
-        // TODO
-    
-       
     }    
 
-   @FXML
+  
+
+    @FXML
     private void ShowPhoto(MouseEvent event) {
-        
-        News n = tabviewnews.getSelectionModel().getSelectedItem();
+    News n = tabviewnews.getSelectionModel().getSelectedItem();
         pdp.setImage(new Image(n.getImage()));
     }
 
     @FXML
-    private void consulter(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("consulter.fxml"));
-        Parent root = loader.load();
-        ConsulterController spc = loader.getController();
-        spc.setid(id);
-        spc.setContent(id);
-        bConsulter.getScene().setRoot(root);   
-    }
-       @FXML
     private void filter(ActionEvent event) throws SQLException {
-         data.clear();
+            data.clear();
         data.addAll(sn.readAll().stream().filter((art)
                 -> art.getTitre().toLowerCase().contains(tfsearch.getText().toLowerCase())
                 || art.getDesc().toLowerCase().contains(tfsearch.getText().toLowerCase())
@@ -144,24 +110,57 @@ public class AccNewsController implements Initializable {
     }
 
     @FXML
-    private void meteoac(ActionEvent event) throws IOException {
-   FXMLLoader loader = new FXMLLoader(getClass().getResource("owm.fxml"));
+    private void consulter(ActionEvent event) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("consulter.fxml"));
         Parent root = loader.load();
-        OwmController spc = loader.getController();
-      
-        meteo.getScene().setRoot(root);   
-   
-     
+        ConsulterController spc = loader.getController();
+        spc.setid(id);
+        spc.setContent(id);
+        bConsulter.getScene().setRoot(root);   
     }
 
     @FXML
     private void select(ActionEvent event) {
-         News n= tabviewnews.getSelectionModel().getSelectedItem();
-        tfTitre.setText(n.getTitre());
-        tfDesc.setText(n.getDesc());
-        tfImage.setText(n.getImage()); 
+              News n= tabviewnews.getSelectionModel().getSelectedItem();
+         myNews = n;
+//        tfTitre.setText(n.getTitre());
+//        tfDesc.setText(n.getDesc());
+//        tfImage.setText(n.getImage()); 
         id= n.getId_news();
         System.out.println(n.getId_news());
+    }
+
+    @FXML
+    private void meteo(ActionEvent event) {
+        try {
+               Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("owm.fxml")));
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+    
+    }
+
+    @FXML
+    private void youtube(ActionEvent event) {
+        try {
+               Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                stage.close();
+                
+                Scene scene = new Scene(FXMLLoader.load(getClass().getResource("youtube.fxml")));
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+    
+
     }
     
 }

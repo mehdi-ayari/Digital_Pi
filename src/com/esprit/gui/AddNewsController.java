@@ -219,6 +219,7 @@ public class AddNewsController implements Initializable {
 
                 News n = tabviewnews.getSelectionModel().getSelectedItem();
                 sn.delete(n.getId_news());
+                
                 data.clear();
                 data.addAll(sn.readAll());
 

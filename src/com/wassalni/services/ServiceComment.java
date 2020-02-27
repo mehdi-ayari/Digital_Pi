@@ -10,12 +10,18 @@ import com.wassalni.Iservices.INews;
 import com.wassalni.entites.Comment;
 import com.wassalni.entites.News;
 import com.wassalni.utilits.DataBase;
+import doryan.windowsnotificationapi.fr.Notification;
+import java.awt.AWTException;
+import java.awt.TrayIcon;
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -34,8 +40,16 @@ public class ServiceComment implements INews<Comment> {
     public void ajouter(Comment t) throws SQLException {
         ste = con.createStatement();
         String requeteInsert = "INSERT INTO `wassalni`.`commentaire` (`text`,`id_news`)  VALUES ('" + t.getText() + "','" + ConsulterController.idn + "');";
-        // ste.executeUpdate(requeteInsert);   
+        // ste.executeUpdate(requeteInsert);  
+
         ste.executeUpdate(requeteInsert);
+        try {
+            Notification.sendNotification("module News", "NEWS DELETED ", TrayIcon.MessageType.INFO);
+        } catch (AWTException ex) {
+            Logger.getLogger(ServiceComment.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ServiceComment.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
