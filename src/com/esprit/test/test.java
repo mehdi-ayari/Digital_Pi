@@ -5,47 +5,50 @@
  */
 package com.esprit.test;
 
-import com.wassalni.entites.Reclamation;
-import com.wassalni.services.ReclamationService;
-import com.wassalni.services.ReservationService;
+import com.wassalni.services.MailService;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 
 /**
  *
- * @author Mahdi
+ * @author user
  */
-public class test extends Application {
-    
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
+public class test extends Application  {
+     @Override
+     public void start(Stage primaryStage) throws IOException{
+     // Parent root = FXMLLoader.load(getClass().getResource("AjouterAnnonce.fxml"));
+      Parent root1 = FXMLLoader.load(getClass().getResource("AfficherReclamation.fxml"));
+      
+      
+     /* Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();*/
+            
+            Scene scene1 = new Scene(root1);
+            primaryStage.setScene(scene1);
+            primaryStage.show();
     }
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
-        ReclamationService ser = new ReclamationService();
-        Reclamation r1 = new Reclamation("seif","jemaui",1);
-        
-        try {
-            ser.ajouter(r1);
-            
-        } catch (Exception e) {
-            e.getMessage();
-        }
-  
     }
+    
+
     
 }
