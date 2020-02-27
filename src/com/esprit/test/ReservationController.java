@@ -17,6 +17,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -26,6 +27,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -37,6 +39,10 @@ public class ReservationController implements Initializable {
         private List<Reservation> reservations= new ArrayList<>() ;
         private Reservation ReservationSelectionner = new Reservation();
         private int indexReservationSelectionner;
+        boolean verifdestination;
+        boolean veriftype;
+        
+        
  ObservableList list =FXCollections.observableArrayList("Taxi","Privée","camion");
     @FXML
     private Label nomch;
@@ -53,13 +59,10 @@ public class ReservationController implements Initializable {
     @FXML
     private Button btnannuller;
     private TextField dateres;
-    @FXML
     private TextField txterreur;
 
     @FXML
     private TableView<Reservation> tablereservation;
-    @FXML
-    private TableColumn<Reservation, Integer> idres;
     @FXML
     private TableColumn<Reservation, String> destination;
     @FXML
@@ -101,6 +104,7 @@ public class ReservationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+//        boxtype.setValue("Taxi");
         boxtype.setItems(list);
                           cmbmodiftype.setItems(list);
 
@@ -140,15 +144,23 @@ public class ReservationController implements Initializable {
         Timestamp datr = new Timestamp(System.currentTimeMillis());
         String type = boxtype.getItems().toString();
         
-        if(dest.equals(""))
-            txterreur.setText("champs distination obligatoire");
+        if (verifdestination == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir la destination");
+            alert.show();
+
+        }
+//        else if (veriftype== false) {
+//            Alert alert = new Alert(Alert.AlertType.WARNING);
+//            alert.setTitle("Warning");
+//            alert.setHeaderText("Warning");
+//            alert.setContentText("Veuillez remplir le type de reservation ");
+//            alert.show();
+//
+//        }
         else
-            if(datr.equals(""))
-                txterreur.setText("date reservation obligatoire");
-            else 
-                if(type.equals(""))
-                    txterreur.setText("type reservation obligatoire");
-                else
          
           {
               Type ty =Type.valueOf(boxtype.getValue());
@@ -223,4 +235,27 @@ public class ReservationController implements Initializable {
         
     }
 
-}
+    @FXML
+    private void controldestination(KeyEvent event) {
+         if (txtdestination.getText().trim().equals("")) {
+
+            verifdestination = false;
+
+        } else {
+
+            verifdestination = true;
+        }
+    }
+
+//    @FXML
+//    private void controltype(KeyEvent event) {
+//         if (boxtype.getValue()!="Taxi" || boxtype.getValue()!="" || boxtype.getValue()!="camio," ) {
+//
+//            veriftype = false;
+//
+//        } else {
+//
+//            veriftype = true;
+//        }
+    }
+
