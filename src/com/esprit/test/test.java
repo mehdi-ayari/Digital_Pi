@@ -40,15 +40,15 @@ public class test extends Application {
         
         stage.setScene(scene1);
         stage.show();
-          Timestamp datr = new Timestamp(System.currentTimeMillis());
-//
-        ReservationbusinessService ser = new ReservationbusinessService();
-        
-        Reservationbusiness rb1=new Reservationbusiness(datr, "mouuuuuuuuuuuuuuuuuuuuurouj2", datr, "kj", "jkgk", "khk");
-//        ser.ajouter(rb1);
-        rb1.setPoint_depart("zeineb");
-        
-        ser.update(rb1);
+//          Timestamp datr = new Timestamp(System.currentTimeMillis());
+////
+//        ReservationbusinessService ser = new ReservationbusinessService();
+//        
+//        Reservationbusiness rb1=new Reservationbusiness(datr, "mouuuuuuuuuuuuuuuuuuuuurouj2", datr, "kj", "jkgk", "khk");
+////        ser.ajouter(rb1);
+//        rb1.setPoint_depart("zeineb");
+//        
+//        ser.update(rb1);
 //        try {
 //            ser.ajouter(rb1);
 //            List<Reservationbusiness> list = ser.readAll();
