@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.AjouterReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.AjouterReclamation">
     <children>
       <Button layoutX="222.0" layoutY="401.0" mnemonicParsing="false" onAction="#ajouterReclamation" style="-fx-background-color: #CCCC00;" text="Valider" textFill="#111111" />
       <TextField fx:id="feTitre" layoutX="122.0" layoutY="111.0" />
