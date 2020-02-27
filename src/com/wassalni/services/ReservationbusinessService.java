@@ -24,7 +24,7 @@ import java.util.List;
 public class ReservationbusinessService implements IReservationbusiness {
     private Connection con;
     private Statement ste;
-    
+    private PreparedStatement ps;
     
 
     public ReservationbusinessService() {
@@ -34,14 +34,41 @@ public class ReservationbusinessService implements IReservationbusiness {
 
     @Override
     public void ajouter(Reservationbusiness rb) throws SQLException {
+        String req ="INSERT INTO `reservation_business`("
+                + " `date_depart`, "
+                + "`destination`, "
+                + "`user_id_entreprise`,"
+                + " `date_reservation`,"
+                + " `nom_client_entreprise`,"
+                + " `prenon_client_entreprise`,"
+                + " `point_depart`)"
+                + "VALUES (?,?,?,?,?,?,?)";
+                
         try {
-            ste = con.createStatement();
-             String requeteInsert = "INSERT INTO `reservation_business`( `date_depart`, `destination`,`user_id_entrepot`,`date_reservation`,`nom_client_entreprise`,`prenon_client_entreprise`,`point_depart`) "
-                + "VALUES ('" + rb.getDate_depart() + "','" + rb.getDestination() + "','"+rb.getUser_id_entreprise()+"','"+rb.getDate_reservation()+"','"+rb.getNom_client_entreprise()+"','"+rb.getPrenom_client_entreprise()+"','"+rb.getPoint_depart()+"');";
-        ste.executeUpdate(requeteInsert);
+            System.out.println(rb);
+            
+             ps = con.prepareStatement(req);
+            ps.setTimestamp(1,rb.getDate_depart());
+            ps.setString(2,rb.getDestination());
+            ps.setInt(3,1);
+            ps.setTimestamp(4,rb.getDate_reservation());
+            ps.setString(5,rb.getNom_client_entreprise());
+            ps.setString(6,rb.getPrenom_client_entreprise());
+            ps.setString(7,rb.getPoint_depart());
+            ps.execute();
+            System.out.println("res ajouté");
+            
         } catch (SQLException ex) {
+            System.out.println("res non ajouté"+ex);
         }
-       
+//        try {
+//            ste = con.createStatement();
+//             String requeteInsert = "INSERT INTO `reservation_business`( `date_depart`, `destination`, `user_id_entreprise`, `date_reservation`, `nom_client_entreprise`, `prenon_client_entreprise`, `point_depart`) "
+//                + "VALUES ('" + rb.getDate_depart() + "','" + rb.getDestination() + "',1,'"+rb.getDate_reservation()+"','"+rb.getNom_client_entreprise()+"','"+rb.getPrenom_client_entreprise()+"','"+rb.getPoint_depart()+"');";
+//        ste.executeUpdate(requeteInsert);
+//        } catch (SQLException ex) {
+//        }
+//       
 
     }
 
