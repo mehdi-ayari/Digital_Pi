@@ -3,6 +3,7 @@ package com.esprit.test;
 import com.wassalni.entites.Reservation;
 import com.wassalni.entites.Type;
 import com.wassalni.services.ReservationService;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -16,7 +17,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -28,6 +32,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -40,7 +45,8 @@ public class ReservationController implements Initializable {
         private Reservation ReservationSelectionner = new Reservation();
         private int indexReservationSelectionner;
         boolean verifdestination;
-        boolean veriftype;
+        public static String dest;
+//        boolean veriftype;
         
         
  ObservableList list =FXCollections.observableArrayList("Taxi","Privée","camion");
@@ -104,7 +110,7 @@ public class ReservationController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        boxtype.setValue("Taxi");
+//        boxtype.setValue("choisir votre type de reservation");
         boxtype.setItems(list);
                           cmbmodiftype.setItems(list);
 
@@ -156,7 +162,7 @@ public class ReservationController implements Initializable {
 //            Alert alert = new Alert(Alert.AlertType.WARNING);
 //            alert.setTitle("Warning");
 //            alert.setHeaderText("Warning");
-//            alert.setContentText("Veuillez remplir le type de reservation ");
+//            alert.setContentText("Veuillez remplir le type de voiture");
 //            alert.show();
 //
 //        }
@@ -180,6 +186,7 @@ public class ReservationController implements Initializable {
 
            
           }
+        txtdestination.setText("");
        
     }
     
@@ -230,7 +237,15 @@ public class ReservationController implements Initializable {
     }
 
     @FXML
-    private void onMap(ActionEvent event) {
+    private void onMap(ActionEvent event) throws IOException {
+        dest = txtdestination.getText();
+                Parent root = FXMLLoader.load(getClass().getResource("Map.fxml"));
+    
+        Scene scene1 = new Scene(root);
+        
+        Stage stage = new Stage();
+        stage.setScene(scene1);
+        stage.show();
         
         
     }
@@ -249,7 +264,7 @@ public class ReservationController implements Initializable {
 
 //    @FXML
 //    private void controltype(KeyEvent event) {
-//         if (boxtype.getValue()!="Taxi" || boxtype.getValue()!="" || boxtype.getValue()!="camio," ) {
+//         if (boxtype.getValue()!="Taxi" || boxtype.getValue()!="Privée" || boxtype.getValue()!="camion" ) {
 //
 //            veriftype = false;
 //
@@ -257,5 +272,6 @@ public class ReservationController implements Initializable {
 //
 //            veriftype = true;
 //        }
-    }
+//    }
 
+}
