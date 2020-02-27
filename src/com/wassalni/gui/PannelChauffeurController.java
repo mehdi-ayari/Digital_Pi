@@ -7,6 +7,10 @@ package com.wassalni.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,6 +28,8 @@ import javafx.scene.layout.AnchorPane;
 public class PannelChauffeurController implements Initializable {
     @FXML
     private AnchorPane container_chauffeur;
+        private Connection con;
+        private Statement ste;
     /**
      * Initializes the controller class.
      */
@@ -46,6 +52,7 @@ public class PannelChauffeurController implements Initializable {
             Parent root = loader.load();       
             container_chauffeur.getChildren().setAll(root);
     }
+    
 
     
 }
