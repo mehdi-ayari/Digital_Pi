@@ -8,6 +8,10 @@ package com.wassalni.services;
 //import java.util.logging.Level;
 
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.wassalni.Iservices.IVoyage;
 import com.wassalni.entites.Voyage;
 import java.sql.Connection;
@@ -17,10 +21,14 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.sql.*;
 import com.wassalni.utilits.DataBase;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //import java.util.logging.Logger;
 
@@ -128,5 +136,33 @@ public class ServiceVoyage implements IVoyage{
     return Voy;
     }*/
    
+    public void pdf() throws FileNotFoundException, DocumentException
+    {
+        try {
+            String file_name ="C:\\Users\\CHOUCHANE MD\\Desktop\\Jawhar\\Jawhar.pdf";
+            Document document = new Document();
+            //file_name.setReadable(true,false);
+            PdfWriter.getInstance(document, new FileOutputStream(file_name));
+            document.open();
+            PreparedStatement pt = con.prepareStatement("select * from wassalni.voyage");
+            ResultSet rs = pt.executeQuery();
+            
+            while (rs.next()) { 
+                Paragraph para=new Paragraph("Voyage [ id_Voyage: " +rs.getInt(1) + " Distance : " + rs.getFloat(2) + " Date_Voyage: " + rs.getTimestamp(3)+" id_res: " + rs.getInt(4)+"]");
+                //System.out.println("garage [ id_garage: " +rs.getInt(1) + " name : " + rs.getString(2) + " Address: " + rs.getString(3)+" id_service: " + rs.getInt(4)+"]");
+                document.add(para);
+                document.add(new Paragraph(" "));
+            }
+            document.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Voyage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Voyage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Voyage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
+    
+    
    
 }

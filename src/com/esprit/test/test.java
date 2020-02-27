@@ -5,8 +5,10 @@
  */
 package com.esprit.test;
 
+import com.itextpdf.text.DocumentException;
 import com.wassalni.entites.Voyage;
 import com.wassalni.services.ServiceVoyage;
+import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +35,7 @@ public class test extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, DocumentException {
         //launch(args);
         
         Voyage voy = new Voyage(1, 1);
@@ -41,6 +43,7 @@ public class test extends Application {
         
         try {
             v.ajouter(voy);
+            v.pdf();
         } catch (SQLException ex) {
         }
     }
