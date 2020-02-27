@@ -101,6 +101,8 @@ public class ReservationController implements Initializable {
     private int idR;
     @FXML
     private Button btnmap;
+    @FXML
+    private TextField prix;
     
     
     
@@ -239,6 +241,8 @@ public class ReservationController implements Initializable {
     @FXML
     private void onMap(ActionEvent event) throws IOException {
         dest = txtdestination.getText();
+        
+        
                 Parent root = FXMLLoader.load(getClass().getResource("Map.fxml"));
     
         Scene scene1 = new Scene(root);
