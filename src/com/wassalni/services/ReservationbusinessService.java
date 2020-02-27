@@ -45,7 +45,7 @@ public class ReservationbusinessService implements IReservationbusiness {
                 + "VALUES (?,?,?,?,?,?,?)";
                 
         try {
-            System.out.println(rb);
+            System.out.println(rb.toString());
             
              ps = con.prepareStatement(req);
             ps.setTimestamp(1,rb.getDate_depart());
