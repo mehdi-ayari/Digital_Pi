@@ -21,9 +21,9 @@
          </font>
       </Label>
       <Button fx:id="bBack" layoutX="51.0" layoutY="427.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="115.0" style="-fx-background-color: #000000;" text="BACK TO NEWS" />
-      <ImageView fitHeight="171.0" fitWidth="150.0" layoutX="34.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="181.0" fitWidth="208.0" layoutX="14.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@img/4830.jpg" />
+            <Image url="@img/stat.png" />
          </image>
       </ImageView>
    </children>

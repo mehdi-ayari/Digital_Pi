@@ -54,7 +54,7 @@
                   <TableColumn fx:id="resImage" onEditCommit="#changeImgCellEvent" prefWidth="14.0" />
                </columns>
             </TableView>
-            <TextField fx:id="tfsearch" layoutX="88.0" layoutY="55.0" onAction="#filter" prefHeight="32.0" prefWidth="232.0" promptText="Rechercher " />
+            <TextField fx:id="tfsearch" layoutX="88.0" layoutY="55.0" onAction="#filter" prefHeight="32.0" prefWidth="232.0" promptText="Rechercher " style="-fx-background-color: #000000;" />
             <Button layoutX="27.0" layoutY="615.0" mnemonicParsing="false" onAction="#delete" style="-fx-background-color: #000000;" text="DELETE" textFill="GOLD" />
             <Button layoutX="109.0" layoutY="615.0" mnemonicParsing="false" onAction="#select" style="-fx-background-color: #000000;" text="SELECT" textFill="GOLD" />
             <Button layoutX="192.0" layoutY="615.0" mnemonicParsing="false" onAction="#updaate" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: #000000;" text="UPDATE" textFill="GOLD" />
@@ -65,7 +65,15 @@
             </ImageView>
             <ImageView fx:id="pdp" fitHeight="163.0" fitWidth="210.0" layoutX="27.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="bConsulter" layoutX="305.0" layoutY="509.0" mnemonicParsing="false" onAction="#consulter" prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #000000;" text="CONSULTER" textFill="GOLD" />
-            <Button fx:id="bStat" layoutX="381.0" layoutY="14.0" mnemonicParsing="false" onAction="#stat" prefHeight="33.0" prefWidth="69.0" style="-fx-background-color: #000000;" text="STAT" textFill="GOLD" />
+            <Button fx:id="bStat" layoutX="422.0" layoutY="63.0" mnemonicParsing="false" onAction="#stat" prefHeight="0.0" prefWidth="54.0" style="-fx-background-color: #ffffff;" text="STAT">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <ImageView fitHeight="55.0" fitWidth="60.0" layoutX="416.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/statistique-png-.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <Button fx:id="bValider" layoutX="123.0" layoutY="535.0" mnemonicParsing="false" onAction="#ajouter" style="-fx-background-color: #ffffff;" text="Ajouter">

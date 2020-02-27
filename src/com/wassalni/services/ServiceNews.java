@@ -57,19 +57,7 @@ public class ServiceNews implements INews<News> {
         return null;
     }
 
-    String tri = " ORDER BY titre " ;
-    String ordre = " ASC" ;
-    public void ordreASC () {
-        ordre = " ASC" ; 
-    }
-     public void ordreDESC () {
-        ordre = " DESC" ; 
-    }
-    
-
-     public void triByTitre() { 
-        tri = " ORDER BY titre ";
-        }
+   
 
     private Connection con;
     private Statement ste;
@@ -147,7 +135,7 @@ public class ServiceNews implements INews<News> {
         if (pre.executeUpdate() != 0) {
             System.out.println("NEWS Updated");
             try {
-                Notification.sendNotification("module News", "IMAGE UPDATED ",TrayIcon.MessageType.INFO);
+                Notification.sendNotification("module News", "NEWS UPDATED ",TrayIcon.MessageType.INFO);
             } catch (MalformedURLException ex) {
                 java.util.logging.Logger.getLogger(ServiceNews.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -164,7 +152,7 @@ public class ServiceNews implements INews<News> {
         if (pre.executeUpdate() != 0) {
             System.out.println("NEWS Updated");
             try {
-                Notification.sendNotification("module News", "DESCRIPTION UPDATED ",TrayIcon.MessageType.INFO);
+                Notification.sendNotification("module News", "NEWS UPDATED ",TrayIcon.MessageType.INFO);
             } catch (AWTException ex) {
                 java.util.logging.Logger.getLogger(ServiceNews.class.getName()).log(Level.SEVERE, null, ex);
             } catch (MalformedURLException ex) {
@@ -182,7 +170,7 @@ public class ServiceNews implements INews<News> {
         if (pre.executeUpdate() != 0) {
             System.out.println("NEWS Updated");
             try {
-                Notification.sendNotification("module News", "TITLE UPDATED ",TrayIcon.MessageType.INFO);
+                Notification.sendNotification("module News", "NEWS UPDATED ",TrayIcon.MessageType.INFO);
             } catch (AWTException ex) {
                 java.util.logging.Logger.getLogger(ServiceNews.class.getName()).log(Level.SEVERE, null, ex);
             } catch (MalformedURLException ex) {
@@ -198,7 +186,7 @@ public class ServiceNews implements INews<News> {
     public List<News> readAll() throws SQLException {
     List<News> arr=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select * from news"+ tri + ordre);
+    ResultSet rs=ste.executeQuery("select * from news");
      while (rs.next()) {                
                int id_news=rs.getInt(1);
                String titre=rs.getString("titre");

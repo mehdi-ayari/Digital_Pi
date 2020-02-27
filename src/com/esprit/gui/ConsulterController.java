@@ -22,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -54,16 +55,19 @@ public class ConsulterController implements Initializable {
     @FXML
     private Label titre;
     @FXML
-    private TextArea affiche;
+    private TextArea resComment;
+    @FXML
+    private PieChart piechart;
 
-    /**
-     * Initializes the controller class.
-     */
+  
+    public void setResComment(TextArea resComment) {
+        this.resComment = resComment;
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-    
     } 
+
     
     public void setContent(int id)
     {

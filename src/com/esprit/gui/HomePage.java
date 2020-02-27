@@ -32,7 +32,7 @@ public class HomePage extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader
-        .load(getClass().getResource("AddNews.fxml"));
+        .load(getClass().getResource("accnews.fxml"));
             
             Scene scene = new Scene(root);
             

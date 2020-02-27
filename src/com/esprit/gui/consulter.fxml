@@ -19,7 +19,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <TextArea fx:id="affiche" layoutX="34.0" layoutY="96.0" prefHeight="61.0" prefWidth="266.0" />
+                  <TextArea fx:id="resComment" layoutX="34.0" layoutY="96.0" prefHeight="61.0" prefWidth="266.0" />
                   <PieChart fx:id="piechart" layoutX="44.0" layoutY="441.0" prefHeight="175.0" prefWidth="247.0" />
                </children>
             </AnchorPane>
