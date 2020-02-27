@@ -104,19 +104,12 @@ public class reservation_businessController implements Initializable{
     private TableView<Reservationbusiness> tablereservation;
     @FXML
     private TableColumn<Reservationbusiness, Timestamp> dateres;
-    @FXML
     private Label controlenom;
-    @FXML
     private Label controleprenom;
-    @FXML
     private Label controlepoint;
-    @FXML
     private Label controledestination;
-    @FXML
     private Label controleheure;
-    @FXML
     private Label controleminute;
-    @FXML
     private Label controledate;
 
     
@@ -130,7 +123,10 @@ public class reservation_businessController implements Initializable{
             reservations=rsb.readAll();
         } catch (SQLException ex) {
         }
-        
+        LocalDate now = LocalDate.now();
+        dated.setValue(now);
+        heured.setText("00");
+        minuted.setText("00");
         
 //        idres.setCellValueFactory(new PropertyValueFactory("id_res") );
         datedepart.setCellValueFactory(new PropertyValueFactory("date_depart") );
@@ -182,13 +178,13 @@ public class reservation_businessController implements Initializable{
              
                     });
     
-    controledate.setVisible(false);
-        controleheure.setVisible(false);
-        controleminute.setVisible(false);
-        controledestination.setVisible(false);
-        controlenom.setVisible(false);
-        controleprenom.setVisible(false);
-        controlepoint.setVisible(false);
+//    controledate.setVisible(false);
+//        controleheure.setVisible(false);
+//        controleminute.setVisible(false);
+//        controledestination.setVisible(false);
+//        controlenom.setVisible(false);
+//        controleprenom.setVisible(false);
+//        controlepoint.setVisible(false);
     
     }  
 
@@ -242,21 +238,21 @@ public class reservation_businessController implements Initializable{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Warning");
-            alert.setContentText("Veuillez remplir date");
+            alert.setContentText("Veuillez remplir date et doit pas etre une ancienne date");
             alert.show();
         }
         else if (verifheure == false) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Warning");
-            alert.setContentText("Veuillez remplir le nom");
+            alert.setContentText("Veuillez remplir le champ heure et doit etre entre 00 et 23");
             alert.show();
         }
         else if(verifminute == false) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Warning");
-            alert.setContentText("Veuillez remplir le nom");
+            alert.setContentText("Veuillez remplir le champ minute et doit etre entre 00 et 60");
             alert.show();
         }
         else{
@@ -398,7 +394,9 @@ public class reservation_businessController implements Initializable{
 
     @FXML
     private void controledate(KeyEvent event) {
-         if (dated.getValue()==null) {
+                LocalDate now = LocalDate.now();
+
+         if (dated.getValue()==null && dated.getValue().isBefore(now)) {
 
             verifdate = false;
 
@@ -411,7 +409,8 @@ public class reservation_businessController implements Initializable{
 
     @FXML
     private void controlheure(KeyEvent event) {
-         if (heured.getText().trim().equals("")) {
+        int i=Integer.parseInt(heured.getText());
+         if (heured.getText().trim().equals("") && heured.getText().length()!=2 && i>60) {
 
             verifheure = false;
 
@@ -424,7 +423,9 @@ public class reservation_businessController implements Initializable{
 
     @FXML
     private void controlminute(KeyEvent event) {
-         if (minuted.getText().trim().equals("")) {
+                int i=Integer.parseInt(minuted.getText());
+
+         if (minuted.getText().trim().equals("") && minuted.getText().length()!=2 && i>23) {
 
             verifminute = false;
 
