@@ -21,12 +21,15 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 /**
  * FXML Controller class
@@ -40,6 +43,13 @@ public class reservation_businessController implements Initializable{
     private List<Reservationbusiness> reservations= new ArrayList<>() ;
    int indexreservationbusines;
    int idR;
+   boolean verifnomclient ;
+   boolean verifprenomclient ;
+   boolean verifdestination ;
+   boolean verifpointdepart ;
+   boolean verifdate ;
+   boolean verifheure ;
+   boolean verifminute ;
 
     
     @FXML
@@ -94,7 +104,23 @@ public class reservation_businessController implements Initializable{
     private TableView<Reservationbusiness> tablereservation;
     @FXML
     private TableColumn<Reservationbusiness, Timestamp> dateres;
+    @FXML
+    private Label controlenom;
+    @FXML
+    private Label controleprenom;
+    @FXML
+    private Label controlepoint;
+    @FXML
+    private Label controledestination;
+    @FXML
+    private Label controleheure;
+    @FXML
+    private Label controleminute;
+    @FXML
+    private Label controledate;
 
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -104,6 +130,8 @@ public class reservation_businessController implements Initializable{
             reservations=rsb.readAll();
         } catch (SQLException ex) {
         }
+        
+        
 //        idres.setCellValueFactory(new PropertyValueFactory("id_res") );
         datedepart.setCellValueFactory(new PropertyValueFactory("date_depart") );
         destinationview.setCellValueFactory(new PropertyValueFactory("destination") );
@@ -153,6 +181,15 @@ public class reservation_businessController implements Initializable{
               }
              
                     });
+    
+    controledate.setVisible(false);
+        controleheure.setVisible(false);
+        controleminute.setVisible(false);
+        controledestination.setVisible(false);
+        controlenom.setVisible(false);
+        controleprenom.setVisible(false);
+        controlepoint.setVisible(false);
+    
     }  
 
     
@@ -163,6 +200,7 @@ public class reservation_businessController implements Initializable{
 
     @FXML
     private void onajouter(ActionEvent event) {
+        
         Timestamp datr = new Timestamp(System.currentTimeMillis());
         String heure = heured.getText();
         String min = minuted.getText();
@@ -170,6 +208,67 @@ public class reservation_businessController implements Initializable{
         String mdy= d.toString();
         String newdate = mdy+" "+heure+":"+min+":"+"00";
         Timestamp datedepart=Timestamp.valueOf(newdate) ;
+        
+        if (verifnomclient == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir le nom");
+            alert.show();
+
+        }
+        else if (verifprenomclient == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir le prenom");
+            alert.show();
+        }
+        else if(verifdestination == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir la destination");
+            alert.show();
+        }
+        else if(verifpointdepart == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir la point de depart");
+            alert.show();
+        }
+        else if(verifdate == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir date");
+            alert.show();
+        }
+        else if (verifheure == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir le nom");
+            alert.show();
+        }
+        else if(verifminute == false) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Warning");
+            alert.setContentText("Veuillez remplir le nom");
+            alert.show();
+        }
+        else{
+        
+            
+//        Timestamp datr = new Timestamp(System.currentTimeMillis());
+//        String heure = heured.getText();
+//        String min = minuted.getText();
+//        LocalDate d = dated.getValue();
+//        String mdy= d.toString();
+//        String newdate = mdy+" "+heure+":"+min+":"+"00";
+//        Timestamp datedepart=Timestamp.valueOf(newdate) ;
         
         Reservationbusiness rb = new Reservationbusiness();
         rb.setDate_depart(datedepart);
@@ -187,6 +286,7 @@ public class reservation_businessController implements Initializable{
         } catch (SQLException ex) {
         }
         
+        }                   
     }
     
     
@@ -241,5 +341,97 @@ public class reservation_businessController implements Initializable{
                 
             } catch (SQLException ex) {
             }
+    }
+
+    @FXML
+    private void controlnomclient(KeyEvent event) {
+     if (nom.getText().trim().equals("")) {
+
+            verifnomclient = false;
+
+        } else {
+
+            verifnomclient = true;
+        }
+    
+    }
+    
+
+    @FXML
+    private void controlprenomclient(KeyEvent event) {
+         if (prenom.getText().trim().equals("")) {
+
+            verifprenomclient = false;
+
+        } else {
+
+            verifprenomclient = true;
+        }
+    
+    }
+
+    @FXML
+    private void controlpoint(KeyEvent event) {
+         if (depart.getText().trim().equals("")) {
+
+            verifpointdepart = false;
+
+        } else {
+
+            verifpointdepart = true;
+        }
+    
+    }
+
+    @FXML
+    private void controldestination(KeyEvent event) {
+         if (destination.getText().trim().equals("")) {
+
+            verifdestination = false;
+
+        } else {
+
+            verifdestination = true;
+        }
+    
+    }
+
+    @FXML
+    private void controledate(KeyEvent event) {
+         if (dated.getValue()==null) {
+
+            verifdate = false;
+
+        } else {
+
+            verifdate= true;
+        }
+    
+    }
+
+    @FXML
+    private void controlheure(KeyEvent event) {
+         if (heured.getText().trim().equals("")) {
+
+            verifheure = false;
+
+        } else {
+
+            verifheure = true;
+        }
+    
+    }
+
+    @FXML
+    private void controlminute(KeyEvent event) {
+         if (minuted.getText().trim().equals("")) {
+
+            verifminute = false;
+
+        } else {
+
+            verifminute = true;
+        }
+    
     }
 }
