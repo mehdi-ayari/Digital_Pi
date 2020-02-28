@@ -46,6 +46,7 @@ public class ReservationController implements Initializable {
         private int indexReservationSelectionner;
         boolean verifdestination;
         public static String dest;
+        float disst = MapController.dist;
 //        boolean veriftype;
         
         
@@ -103,6 +104,8 @@ public class ReservationController implements Initializable {
     private Button btnmap;
     @FXML
     private TextField prix;
+    @FXML
+    private Button voirprix;
     
     
     
@@ -171,6 +174,9 @@ public class ReservationController implements Initializable {
         else
          
           {
+              
+            
+              
               Type ty =Type.valueOf(boxtype.getValue());
               
               Reservation r = new Reservation();
@@ -277,5 +283,30 @@ public class ReservationController implements Initializable {
 //            veriftype = true;
 //        }
 //    }
+    
+    public float calculerprixtaxi(float disst){
+        return 540+((disst*2.3f)*900);
+    }
+    public float calculerprixprive(float disst){
+    return 1000+((disst*2.3f)*1500);
+    }
+    public float calculerprixcamion(float disst){
+    return 30000+((disst*2.3f)*3000); 
+    }
+
+    @FXML
+    private void onvoirprix(ActionEvent event) {
+//        prix.setText("hhhh");
+//       System.out.println(boxtype.getValue());
+            float prixtaxi = calculerprixtaxi(disst);
+            System.out.println(prixtaxi);
+          if (boxtype.getValue().toString().equals("taxi"))
+                  prix.setText(String.valueOf(calculerprixtaxi(disst)));
+              else if (boxtype.getValue().toString().equals("Privée"))
+                  prix.setText(String.valueOf(calculerprixprive(disst)));
+              else 
+                  if (boxtype.getValue().toString().equals("camion"))
+                      prix.setText(String.valueOf(calculerprixcamion(disst)));
+    }
 
 }
