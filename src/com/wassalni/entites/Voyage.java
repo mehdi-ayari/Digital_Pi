@@ -17,6 +17,8 @@ public class Voyage {
     private Timestamp date_voyage;
     private int reservation_id_res;
     private String distination;
+    private Timestamp date_reservation;
+    private int userid;
 
     public Voyage() {
     }
@@ -28,7 +30,22 @@ public class Voyage {
         this.reservation_id_res = reservation_id_res;
         this.distination = distination;
     }
+    
+        public Voyage(float distance) {
 
+        this.distance = distance;
+
+    }
+
+    public Voyage(int id_voyage, float distance, Timestamp date_voyage, int reservation_id_res, String distination, Timestamp date_reservation, int userid) {
+        this.id_voyage = id_voyage;
+        this.distance = distance;
+        this.date_voyage = date_voyage;
+        this.reservation_id_res = reservation_id_res;
+        this.distination = distination;
+        this.date_reservation = date_reservation;
+        this.userid = userid;
+    }
     
     
     public Voyage(int id_voyage, float distance, Timestamp date_voyage, int reservation_id_res) {
@@ -49,6 +66,11 @@ public class Voyage {
        
         this.distance = distance;
         this.reservation_id_res = reservation_id_res;
+    }
+
+    public Voyage(Timestamp date_reservation, int userid) {
+            this.date_reservation=date_reservation;
+            this.userid=userid;
     }
 
     public Timestamp getDate_voyage() {
@@ -97,6 +119,27 @@ public class Voyage {
     public String toString() {
         return "id : " + id_voyage + " distance : " + distance + " date_voyage : " + date_voyage + " reservation_id_res : " + reservation_id_res;
     }
+    
+    public static double distance(double lat1, double lat2, double lon1,
+        double lon2, double el1, double el2) {
+
+    final int R = 6371; // Radius of the earth
+
+    double latDistance = Math.toRadians(lat2 - lat1);
+    double lonDistance = Math.toRadians(lon2 - lon1);
+    double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
+            + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+            * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
+    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    double distance = R * c * 1000; // convert to meters
+
+    double height = el1 - el2;
+
+    distance = Math.pow(distance, 2) + Math.pow(height, 2);
+
+    return Math.sqrt(distance);
+    
+}
     
     
     
