@@ -18,7 +18,7 @@
       <TextField fx:id="txtdestination" layoutX="344.0" layoutY="344.0" onKeyReleased="#controldestination" />
       <Label layoutX="164.0" layoutY="348.0" text="Destination" />
       <Label layoutX="162.0" layoutY="399.0" text="Type voiture" />
-      <Label layoutX="175.0" layoutY="452.0" text="Prix" />
+      <Label layoutX="195.0" layoutY="503.0" text="Prix" />
       <Label fx:id="prench" layoutX="699.0" layoutY="399.0" minHeight="16" minWidth="69" text="Prenom conducteur" />
       <Label fx:id="label2" layoutX="64.0" layoutY="604.0" minHeight="16" minWidth="69" text="Valider/Annuller reservation" />
       <Button fx:id="btnvalider" layoutX="298.0" layoutY="604.0" mnemonicParsing="false" onAction="#OnClickValider" text="Valider" />
@@ -42,7 +42,8 @@
       <TextField fx:id="txtmodifdestination" layoutX="831.0" layoutY="126.0" />
       <ComboBox fx:id="cmbmodiftype" layoutX="831.0" layoutY="158.0" prefWidth="150.0" />
       <ChoiceBox fx:id="boxtype" layoutX="343.0" layoutY="395.0" prefWidth="150.0" />
-      <Button fx:id="btnmap" layoutX="375.0" layoutY="487.0" mnemonicParsing="false" onAction="#onMap" text="Voir Map" />
-      <TextField fx:id="prix" layoutX="344.0" layoutY="440.0" />
+      <Button fx:id="btnmap" layoutX="374.0" layoutY="545.0" mnemonicParsing="false" onAction="#onMap" text="Voir Map" />
+      <TextField fx:id="prix" layoutX="344.0" layoutY="499.0" />
+      <Button fx:id="voirprix" layoutX="381.0" layoutY="441.0" mnemonicParsing="false" onAction="#onvoirprix" text="Voir prix" />
     </children>
 </AnchorPane>
