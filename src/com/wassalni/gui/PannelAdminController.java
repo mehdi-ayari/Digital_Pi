@@ -40,6 +40,9 @@ public class PannelAdminController implements Initializable {
         
         
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/signIn.fxml"));
+=======
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/ListeAffichage.fxml"));
+>>>>>>> Stashed changes
             Parent root = loader.load();       
             container_Admin.getChildren().setAll(root);
     }
