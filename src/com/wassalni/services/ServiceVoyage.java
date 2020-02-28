@@ -12,8 +12,19 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.teamdev.jxmaps.GeocoderCallback;
+import com.teamdev.jxmaps.GeocoderRequest;
+import com.teamdev.jxmaps.GeocoderResult;
+import com.teamdev.jxmaps.GeocoderStatus;
+import com.teamdev.jxmaps.LatLng;
+import com.teamdev.jxmaps.Map;
+import com.teamdev.jxmaps.Marker;
+import com.teamdev.jxmaps.TrafficLayer;
+import com.teamdev.jxmaps.javafx.MapView;
+import com.wassalni.GUIVoyage.MapController;
 import com.wassalni.Iservices.IVoyage;
 import com.wassalni.entites.Voyage;
+import com.wassalni.gui.SignInController;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,6 +40,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.activation.DataSource;
 
 //import java.util.logging.Logger;
 
@@ -37,6 +49,12 @@ import java.util.logging.Logger;
  * @author House
  */
 public class ServiceVoyage implements IVoyage{
+        
+    public static Timestamp dateRes;
+    public static int userid;
+    public static int idRes;
+    public static String dest;
+    public MapView mapView;
     
     public Voyage findbyTitre(int reservation_id_res) {
         
@@ -76,6 +94,7 @@ public class ServiceVoyage implements IVoyage{
     private Connection con;
     private Statement ste;
 
+
     public ServiceVoyage() {
         con = DataBase.getInstance().getConnection();
 
@@ -84,15 +103,37 @@ public class ServiceVoyage implements IVoyage{
    
     @Override
     public void ajouter(Voyage v) throws SQLException {
-        ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `wassalni`.`voyage` (`distance`, `date_voyage`, `reservation_id_res`) VALUES ('" + v.getDistance()+ "', CURRENT_TIMESTAMP(), '" + v.getReservation_id_res()+ "');";
-        ste.executeUpdate(requeteInsert);   
+        
+       
+                try {
+            String req = "select date_res , user_id_client , destination , id_res from reservation where user_id_client = "+SignInController.userIden+" and date_res between (CURRENT_TIMESTAMP() - 00000000000200) and (CURRENT_TIMESTAMP() + 00000000000200 )" ;
+            Statement s = DataBase.getInstance().getConnection().createStatement();
+            ResultSet rs = s.executeQuery(req);
+            while (rs.next()) {
+                dateRes = rs.getTimestamp("date_res");
+                userid = rs.getInt("user_id_client");
+                dest = rs.getString("destination");
+                idRes = rs.getInt("id_res");
+                
+            }  } catch (SQLException ex) {
+            Logger.getLogger(ServiceVoyage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+                
+                
+                
+            ste = con.createStatement();
+            String requeteInsert = "INSERT INTO `wassalni_data_base`.`voyage` (`distance`, `date_voyage`, `reservation_id_res`) VALUES ('" + v.getDistance()+ "', CURRENT_TIMESTAMP(), '" + idRes+ "') where select date_res from reservation where date_res between (CURRENT_TIMESTAMP() - 00000000000200) and (CURRENT_TIMESTAMP() + 00000000000200 );";
+            ste.executeUpdate(requeteInsert);  
+
+        
     }
+    
             
 
     @Override
     public boolean delete(int id_news) throws SQLException {
-        PreparedStatement pre=con.prepareStatement("DELETE FROM `wassalni`.`voyage` WHERE id_news=? ;");
+        PreparedStatement pre=con.prepareStatement("DELETE FROM `wassalni_data_base`.`voyage` WHERE id_news=? ;");
                  pre.setInt(1, id_news);
                  if (pre.executeUpdate()!=0 )
                  {System.out.println ("Voyage Deleted");
@@ -107,7 +148,7 @@ public class ServiceVoyage implements IVoyage{
     public List<Voyage> readAll() throws SQLException {
     List<Voyage> Voy=new ArrayList<>();
     ste=con.createStatement();
-    ResultSet rs=ste.executeQuery("select id_voyage , distance , date_voyage , reservation_id_res , destination from voyage v inner join reservation r where reservation_id_res = id_res"+ tri + ordre);
+    ResultSet rs=ste.executeQuery("select id_voyage , distance , date_voyage , reservation_id_res , destination from voyage v inner join reservation r where reservation_id_res = "+ idRes + tri + ordre);
      while (rs.next()) {                
                int id_voyage=rs.getInt(1);
                float distance=rs.getFloat("distance");
@@ -119,6 +160,10 @@ public class ServiceVoyage implements IVoyage{
      }
     return Voy;
     }
+    
+   
+
+
     
   /*      public List<Voyage> readByClient( ) throws SQLException {
     List<Voyage> Voy=new ArrayList<>();
@@ -135,7 +180,6 @@ public class ServiceVoyage implements IVoyage{
      }
     return Voy;
     }*/
-   
     public void pdf() throws FileNotFoundException, DocumentException
     {
         try {
@@ -162,6 +206,8 @@ public class ServiceVoyage implements IVoyage{
             Logger.getLogger(Voyage.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
+    
+    
     
     
    
