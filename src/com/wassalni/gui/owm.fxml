@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="170.0" prefWidth="346.0" style="-fx-background-color: #fdff9f;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.OwmController">
+   <AnchorPane layoutY="6.0" prefHeight="34.0" prefWidth="400.0" style="-fx-background-color: #000000;">
+      <children>
+         <Button fx:id="back" layoutX="361.0" layoutY="4.0" mnemonicParsing="false" onAction="#backkk" prefHeight="25.0" prefWidth="13.0" style="-fx-background-color: #000000;" text="BACK" textFill="#fffdfd" />
+      </children></AnchorPane>
+   
+    <HBox alignment="BASELINE_CENTER" spacing="20" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">  
+     <fx:define>  
+       <ToggleGroup fx:id="cityTg" />  
+     </fx:define>  
+     <children>  
+       <RadioButton selected="true" text="Tunis" textFill="WHITE">
+            <toggleGroup>
+               <ToggleGroup fx:id="cityTg" />
+            </toggleGroup>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></RadioButton>  
+       <RadioButton text="Hammamet" textFill="WHITE" toggleGroup="$cityTg">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></RadioButton>  
+       <RadioButton text="Sousse" textFill="WHITE" toggleGroup="$cityTg">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></RadioButton>  
+       <Button fx:id="refreshBtn" onAction="#initialize" />  
+     </children>  
+   </HBox>  
+   <Label fx:id="iconLbl" AnchorPane.topAnchor="50.0" />  
+   <Label fx:id="cityNameLbl" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0" />  
+   <Label fx:id="descriptionLbl" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />  
+   <Label fx:id="temperatureLbl" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="50.0" />  
+   <Label fx:id="celsiusLbl" text="°C" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="68.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>  
+   <Label text="P:" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="50.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>  
+   <Label text="mbar" textFill="GOLD" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="50.0" />  
+   <Label fx:id="pressureLbl" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="50.0" />  
+   <Label text="H:" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="70.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>  
+   <Label text="\%" textFill="GOLD" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="70.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>  
+   <Label fx:id="humidityLbl" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="70.0" />  
+   <Label text="W:" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="90.0">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>  
+   <Label text="kmph" textFill="GOLD" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="90.0" />  
+   <Label fx:id="windLbl" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="90.0" />  
+   <Label fx:id="timeLbl" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="130.0" />  
+   <HBox fx:id="botBox" alignment="BASELINE_CENTER" prefWidth="400.0" spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">  
+     <children>  
+       <Label fx:id="djoLbl" text="WASSALNI WEATHER MAP" textFill="WHITE" />  
+       <Label fx:id="owmLbl" text="Powered by OpenWeatherMap" textFill="WHITE" />  
+     </children>  
+   </HBox>  
+</AnchorPane>
