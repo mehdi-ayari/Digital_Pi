@@ -38,6 +38,7 @@ import javafx.scene.image.ImageView;
 import com.wassalni.utilits.ControleSaisie;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -142,10 +143,28 @@ public class ConsulterController implements Initializable {
         String comment = tfcomment.getText();
         ServiceComment sc = new ServiceComment();
         Comment c = new Comment(comment);
-        ControleSaisie.effacerControleSaisie(erreurcomment);
+       
         commentok = ControleSaisie.controleTextFieldVide(tfcomment, "COMMENT MISSED..", erreurcomment);
-        //commentok = ControleSaisie.controleTextFieldOnlyLetters(tfcomment, "", erreurcomment);
-        sc.ajouter(c);
+        commentok =ControleSaisie.controleTextFieldNonNumerique(tfcomment, "COMMENTAIRE NON NUMERIQUE", erreurcomment);
+        
+        if(commentok)
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+                   alert.setTitle("AJOUTER NEWS");
+                   alert.setHeaderText(null);
+                   alert.setContentText("Les champs doivent etre remplis");
+                   alert.showAndWait();
+        }
+        else {
+            sc.ajouter(c);
+            Alert succDeleteBookAlert = new Alert(Alert.AlertType.INFORMATION);
+            succDeleteBookAlert.setTitle("Delete ");
+            succDeleteBookAlert.setHeaderText("Results:");
+            succDeleteBookAlert.setContentText("ADDED successfully!");
+            succDeleteBookAlert.showAndWait();
+        }
+        
+        
          datac.clear();
     datac.addAll(sc.getComments(AddNewsController.myNews));
             this.rescomment.setCellValueFactory(new PropertyValueFactory<>("text"));

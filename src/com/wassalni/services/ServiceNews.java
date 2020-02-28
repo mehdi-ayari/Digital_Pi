@@ -79,7 +79,7 @@ public class ServiceNews implements INews<News> {
     }
 
     public boolean ajouter1(News n) throws SQLException {
-        PreparedStatement pre = con.prepareStatement("INSERT INTO `wassalni`.`news` ( `titre`, `desc`,  `image`) VALUES ( ?, ?, ?);");
+        PreparedStatement pre = con.prepareStatement("INSERT INTO `wassalni_data_base`.`news` ( `titre`, `desc`,  `image`) VALUES ( ?, ?, ?);");
         pre.setString(1, n.getTitre());
         pre.setString(2, n.getDesc());
         pre.setString(3, n.getImage());
@@ -89,7 +89,7 @@ public class ServiceNews implements INews<News> {
 
     @Override
     public boolean delete(int id_news) throws SQLException {
-        PreparedStatement pre = con.prepareStatement("DELETE FROM `wassalni`.`news` WHERE id_news=? ;");
+        PreparedStatement pre = con.prepareStatement("DELETE FROM `wassalni_data_base`.`news` WHERE id_news=? ;");
         pre.setInt(1, id_news);
         if (pre.executeUpdate() != 0) {
             System.out.println("NEWS Deleted");
@@ -125,7 +125,7 @@ public class ServiceNews implements INews<News> {
     }
 
     public boolean updateimage(int id_news, String Image) throws SQLException, AWTException {
-        PreparedStatement pre = con.prepareStatement("UPDATE `wassalni`.`news` SET IMAGE = ? WHERE id_news=? ;");
+        PreparedStatement pre = con.prepareStatement("UPDATE `wassalni_data_base`.`news` SET IMAGE = ? WHERE id_news=? ;");
         pre.setString(1, Image);
         pre.setInt(2, id_news);
         if (pre.executeUpdate() != 0) {
@@ -142,7 +142,7 @@ public class ServiceNews implements INews<News> {
     }
 
     public boolean updatedesc(int id_news, String desc) throws SQLException {
-        PreparedStatement pre = con.prepareStatement("UPDATE `wassalni`.`news` SET DESC = ? WHERE id_news=? ;");
+        PreparedStatement pre = con.prepareStatement("UPDATE `wassalni_data_base`.`news` SET DESC = ? WHERE id_news=? ;");
         pre.setString(1, desc);
         pre.setInt(2, id_news);
         if (pre.executeUpdate() != 0) {
@@ -161,7 +161,7 @@ public class ServiceNews implements INews<News> {
     }
 
     public boolean updatetitre(int id_news, String titre) throws SQLException {
-        PreparedStatement pre = con.prepareStatement("UPDATE `wassalni`.`news` SET TITRE = ? WHERE id_news=? ;");
+        PreparedStatement pre = con.prepareStatement("UPDATE `wassalni_data_base`.`news` SET TITRE = ? WHERE id_news=? ;");
         pre.setString(1, titre);
         pre.setInt(2, id_news);
         if (pre.executeUpdate() != 0) {
