@@ -10,15 +10,28 @@ import com.wassalni.services.ChauffeurService;
 import com.wassalni.services.Role;
 import com.wassalni.services.UserService;
 import java.sql.SQLException;
+
+import com.wassalni.services.MailService;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 
 /**
  *
- * @author Mahdi
+ * @author user
  */
 public class test extends Application {
    
@@ -29,9 +42,7 @@ public class test extends Application {
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.show();
-    }
-
+        stage.show();}
     /**
      * @param args the command line arguments
      */
@@ -39,5 +50,7 @@ public class test extends Application {
         launch(args);
         
     }
+    
+
     
 }
