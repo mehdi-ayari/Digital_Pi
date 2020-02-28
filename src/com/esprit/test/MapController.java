@@ -113,11 +113,13 @@ public class MapController implements Initializable {
                     mark.setPosition(location);
                     dist = (float) distance(origin.getLat(), origin.getLng(), location.getLat(), location.getLng(), 'K');
                     System.out.println(dist);
+                    
                 }
             }
         });
     
     }
+    
     
     private double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
       double theta = lon1 - lon2;
