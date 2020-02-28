@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author Mahdi
  */
 public class DataBase {
-     String url = "jdbc:mysql://localhost/wassalni_data_base";
+     String url = "jdbc:mysql://localhost:3306/wassalni";
      String login = "root";
      String pwd = "";
     public  static DataBase db;
