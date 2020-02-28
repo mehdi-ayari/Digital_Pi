@@ -5,10 +5,13 @@
  */
 package com.wassalni.gui;
 
+import com.wassalni.entites.Voyage;
+import com.wassalni.services.ServiceVoyage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
@@ -30,6 +33,8 @@ public class PannelChauffeurController implements Initializable {
     private AnchorPane container_chauffeur;
         private Connection con;
         private Statement ste;
+        ServiceVoyage sv = new ServiceVoyage();
+        Voyage v = new Voyage(5);
     /**
      * Initializes the controller class.
      */
@@ -51,6 +56,16 @@ public class PannelChauffeurController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/signIn.fxml"));
             Parent root = loader.load();       
             container_chauffeur.getChildren().setAll(root);
+    }
+
+    @FXML
+    private void Voyage(ActionEvent event) throws IOException, SQLException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/GUIVoyage/voyage.fxml"));
+            Parent root = loader.load();       
+            container_chauffeur.getChildren().setAll(root);
+            sv.ajouter(v);
+            
+            
     }
     
 
