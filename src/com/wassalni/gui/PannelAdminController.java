@@ -39,6 +39,7 @@ public class PannelAdminController implements Initializable {
     private void profil(ActionEvent event) throws IOException {
         
         
+<<<<<<< Updated upstream
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/signIn.fxml"));
 =======
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/ListeAffichage.fxml"));
