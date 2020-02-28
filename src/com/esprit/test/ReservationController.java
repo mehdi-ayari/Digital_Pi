@@ -47,6 +47,7 @@ public class ReservationController implements Initializable {
         boolean verifdestination;
         public static String dest;
         float disst = MapController.dist;
+       
 //        boolean veriftype;
         
         
@@ -256,6 +257,7 @@ public class ReservationController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(scene1);
         stage.show();
+//        System.out.println(disst);
         
         
     }
@@ -284,29 +286,39 @@ public class ReservationController implements Initializable {
 //        }
 //    }
     
-    public float calculerprixtaxi(float disst){
-        return 540+((disst*2.3f)*900);
+    public float calculerprixtaxi(float dist ){
+        return 540+((dist*2.3f)*900);
     }
-    public float calculerprixprive(float disst){
-    return 1000+((disst*2.3f)*1500);
+    public float calculerprixprive(float dist ){
+    return 1000+((dist*2.3f)*1500);
     }
-    public float calculerprixcamion(float disst){
-    return 30000+((disst*2.3f)*3000); 
+    public float calculerprixcamion(float dist ){
+    return 30000+((dist*2.3f)*3000); 
     }
 
     @FXML
     private void onvoirprix(ActionEvent event) {
 //        prix.setText("hhhh");
-//       System.out.println(boxtype.getValue());
+       System.out.println(boxtype.getValue().toString());
+        System.out.println(disst);
             float prixtaxi = calculerprixtaxi(disst);
-            System.out.println(prixtaxi);
+//            System.out.println(prixtaxi);
+            float prixprive = calculerprixprive(disst);
+//            System.out.println(prixprive);
+            float prixcamion = calculerprixcamion(disst);
+//            System.out.println(prixtaxi);
+            
           if (boxtype.getValue().toString().equals("taxi"))
-                  prix.setText(String.valueOf(calculerprixtaxi(disst)));
-              else if (boxtype.getValue().toString().equals("Privée"))
-                  prix.setText(String.valueOf(calculerprixprive(disst)));
+                  prix.setText(String.valueOf(prixtaxi));
+              else 
+                    if (boxtype.getValue().toString().equals("Privée"))
+                    {
+                        System.out.println(String.valueOf(prixprive));
+                  prix.setText(String.valueOf(prixprive));
+                    }
               else 
                   if (boxtype.getValue().toString().equals("camion"))
-                      prix.setText(String.valueOf(calculerprixcamion(disst)));
+                      prix.setText(String.valueOf(prixcamion));
     }
 
 }
