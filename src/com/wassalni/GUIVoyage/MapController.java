@@ -36,12 +36,12 @@ import javax.swing.JOptionPane;
 public class MapController implements Initializable {
     @FXML
     private MapView mapView;
-    private LatLng origin = new LatLng(36.8279141,10.2039551);
+    private static LatLng origin ;
     private Voyage Voy = new Voyage();
     private ServiceVoyage V = new ServiceVoyage();
     public ObservableList<Voyage> data = FXCollections.observableArrayList();
     String desti=  VoyageController.dest;
-    LatLng location = new LatLng(36.8992777,10.1874516);
+    public static float dis;
     
 
     @Override
@@ -64,6 +64,7 @@ public class MapController implements Initializable {
                 if (status == MapStatus.MAP_STATUS_OK) {
                     // Getting the associated map object
                     final Map map = mapView.getMap();
+                    origin = new LatLng(36.8279141,10.2039551);
                     // Creating a map options object
                     MapOptions options = new MapOptions();
                     // Creating a map type control options object
@@ -81,7 +82,7 @@ public class MapController implements Initializable {
                     
                     mark.setPosition(origin);
                     
-                    map.setCenter(new LatLng(36.8992777,10.1874516));
+                    map.setCenter(origin);
                      
                      
                     performGeocode(desti);
@@ -111,9 +112,44 @@ public class MapController implements Initializable {
                     // Setting the map center to result location
                     map.setCenter(location);
                     mark.setPosition(location);
+                    new TrafficLayer(map);
+                    
+                    dis = (float) distance(location.getLat(), origin.getLat(), location.getLng(), origin.getLng(), 'k');
+                    Voy.setDistance(dis);
+                    
+                    
+                    
                 }
             }
         });
     }
+    
+           private double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
+      double theta = lon1 - lon2;
+      double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+      dist = Math.acos(dist);
+      dist = rad2deg(dist);
+      dist = dist * 60 * 1.1515;
+      if (unit == 'K') {
+        dist = dist * 1.609344;
+      } else if (unit == 'N') {
+        dist = dist * 0.8684;
+        }
+      return (dist);
+    }
+    
+        private double deg2rad(double deg) {
+      return (deg * Math.PI / 180.0);
+    }
+
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    /*::  This function converts radians to decimal degrees             :*/
+    /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+    private double rad2deg(double rad) {
+      return (rad * 180.0 / Math.PI);
+    }
+    
+    
+
 };
 
