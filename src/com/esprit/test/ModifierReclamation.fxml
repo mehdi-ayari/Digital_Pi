@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.ModifierReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.esprit.test.ModifierReclamationController">
     <children>
       <Button layoutX="233.0" layoutY="367.0" mnemonicParsing="false" onAction="#ModifierReclamation" style="-fx-background-color: #CCCC00;" text="Valider" />
       <Button fx:id="tfReturn" layoutX="331.0" layoutY="367.0" mnemonicParsing="false" onAction="#Retour" style="-fx-background-color: #CCCC00;" text="Retour" />
@@ -33,7 +33,7 @@
       <BorderPane layoutY="416.0" prefHeight="54.0" prefWidth="627.0" style="-fx-background-color: #CCCC00;" />
       <ImageView fitHeight="98.0" fitWidth="149.0" layoutX="-12.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imageRec/wassalni%20logo.png" />
+            <Image url="@../../wassalni/imageRec/wassalni%20logo.png" />
          </image>
       </ImageView>
    </children>

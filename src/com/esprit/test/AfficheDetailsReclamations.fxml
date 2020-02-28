@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.AfficheDetailsReclamationsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.esprit.test.AfficheDetailsReclamationsController">
        <children>
       <Button layoutX="-102.0" layoutY="14.0" mnemonicParsing="false" text="Button" />
       <Button fx:id="tfretour" layoutX="448.0" layoutY="306.0" mnemonicParsing="false" onAction="#RetourMenu" style="-fx-background-color: #CCCC00;" text="Retour" />
@@ -37,9 +37,9 @@
          </center></BorderPane>
       <BorderPane layoutY="348.0" prefHeight="52.0" prefWidth="600.0" style="-fx-background-color: #CCCC00;" />
       <Label fx:id="tfTitre" layoutX="174.0" layoutY="118.0" text="Label" />
-      <ImageView fitHeight="77.0" fitWidth="98.0" layoutX="-17.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="77.0" fitWidth="98.0" layoutX="-14.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imageRec/wassalni%20logo.png" />
+            <Image url="@../../wassalni/imageRec/wassalni%20logo.png" />
          </image>
       </ImageView>
       <Label fx:id="tfDescri" layoutX="174.0" layoutY="199.0" text="Description">

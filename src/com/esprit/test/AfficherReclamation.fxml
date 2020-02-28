@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.test.MenuReclamation">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.esprit.test.MenuReclamation">
     <children>
       <TableView fx:id="table" layoutX="49.0" layoutY="139.0" prefHeight="230.0" prefWidth="373.0">
         <columns>
@@ -45,7 +45,7 @@
       <Label fx:id="tfcount" layoutX="378.0" layoutY="369.0" text="Label" />
       <ImageView fitHeight="89.0" fitWidth="150.0" layoutX="-15.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../imageRec/wassalni%20logo.png" />
+            <Image url="@../../wassalni/imageRec/wassalni%20logo.png" />
          </image>
       </ImageView>
       <Label layoutX="220.0" layoutY="369.0" text="Nombre des Reclamations:" />
