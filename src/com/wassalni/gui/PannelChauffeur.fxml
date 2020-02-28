@@ -3,7 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,7 +13,7 @@
    <children>
       <Pane layoutX="-2.0" prefHeight="145.0" prefWidth="1062.0" styleClass="head-background" stylesheets="@../CSS/style.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="224.0" layoutY="47.0" text="Chauffeur" textFill="WHITE">
+            <Label fx:id="nom" layoutX="204.0" layoutY="69.0" text="Chauffeur" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
@@ -28,6 +28,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
+            <ImageView fx:id="image" fitHeight="125.0" fitWidth="163.0" layoutX="14.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <VBox layoutX="-1.0" layoutY="145.0" prefHeight="438.0" prefWidth="252.0" style="-fx-background-color: #fff;" stylesheets="@../CSS/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="146.0">
@@ -96,11 +97,6 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane layoutX="71.0" layoutY="44.0" prefHeight="131.0" prefWidth="142.0" style="-fx-background-color: #fff;">
-         <effect>
-            <DropShadow blurType="GAUSSIAN" height="10.0" radius="4.5" width="10.0" />
-         </effect>
-      </Pane>
       <AnchorPane fx:id="container_chauffeur" layoutX="224.0" layoutY="160.0" prefHeight="465.0" prefWidth="1037.0" />
    </children>
 </AnchorPane>

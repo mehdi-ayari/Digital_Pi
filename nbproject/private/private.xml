@@ -6,13 +6,11 @@
             <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/gui/SignUPChauffeurController.java</file>
             <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/gui/PannelChauffeurController.java</file>
             <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/gui/SignInController.java</file>
-            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/services/ChauffeurService.java</file>
-            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/services/EntrepiseService.java</file>
-            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/services/UserService.java</file>
-            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/services/FtpUpload.java</file>
-            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/gui/PannelAdminController.java</file>
+            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/gui/ProfileChauffeurController.java</file>
+            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/CSS/style.css</file>
+            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/CSS/Fullpackstyling.css</file>
             <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/utilits/DataBase.java</file>
-            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/services/AdminService.java</file>
+            <file>file:/C:/Users/jawed/OneDrive/Bureau/digital/Digital_Pi/src/com/wassalni/gui/ProfileClientController.java</file>
         </group>
     </open-files>
 </project-private>

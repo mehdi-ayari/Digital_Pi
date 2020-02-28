@@ -5,6 +5,10 @@
  */
 package com.wassalni.gui;
 
+import com.wassalni.entites.User;
+import com.wassalni.services.ChauffeurService;
+import com.wassalni.services.UserService;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +17,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -24,13 +31,30 @@ import javafx.scene.layout.AnchorPane;
 public class PannelChauffeurController implements Initializable {
     @FXML
     private AnchorPane container_chauffeur;
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private ImageView image;
+    @FXML
+    private Label nom;
+    public static int idusers = 0;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        idusers = SignInController.userIden;
+        System.out.println(idusers);
+        ChauffeurService ser = new ChauffeurService();
+        User u = ser.finUserById(idusers);
+        System.out.println(u.getNom());
+        image.setImage(new Image(u.getPhoto()));
+        nom.setText(u.getNom());
+        
     }    
+//    @FXML
+//    public void image(){
+//        UserService ser = new UserService();
+//        User u = ser.finUserById(idusers);
+//        image.setImage(new Image(u.getPhoto()));
+//    }
+    
+    
     public AnchorPane getContainer_admin() {
         return container_chauffeur;
     }
@@ -42,7 +66,7 @@ public class PannelChauffeurController implements Initializable {
     private void profil(ActionEvent event) throws IOException {
         
         
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/signIn.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/ListeAffichage.fxml"));
             Parent root = loader.load();       
             container_chauffeur.getChildren().setAll(root);
     }

@@ -172,17 +172,48 @@ public class SignUPChauffeurController implements Initializable {
         }
     }
     @FXML
-    private void upload(ActionEvent event) {
+    private void uploadP(ActionEvent event) {
         
         FileChooser fc = new FileChooser();
         FtpUpload Upload = new FtpUpload();
         String imageFile = "";
         File f = fc.showOpenDialog(null);
-
+        System.out.println(f.getName());
         if (f != null) {
             Upload.FTPTransfer(f);
-            imageFile = f.toURI().toString();
+            imageFile = "http://127.0.0.1/"+f.getName();
             tfPhoto.setText(imageFile);
+            System.out.println("uploaded");
+        }
+    }
+    @FXML
+    private void uploadL(ActionEvent event) {
+        
+        FileChooser fc = new FileChooser();
+        FtpUpload Upload = new FtpUpload();
+        String imageFile = "";
+        File f = fc.showOpenDialog(null);
+        System.out.println(f.getName());
+        if (f != null) {
+            Upload.FTPTransfer(f);
+            imageFile = "http://127.0.0.1/"+f.getName();
+            tfLicence.setText(imageFile);
+            System.out.println("uploaded");
+        }
+    }
+    
+        @FXML
+    private void uploadA(ActionEvent event) {
+        
+        FileChooser fc = new FileChooser();
+        FtpUpload Upload = new FtpUpload();
+        String imageFile = "";
+        File f = fc.showOpenDialog(null);
+        System.out.println(f.getName());
+        if (f != null) {
+            Upload.FTPTransfer(f);
+            imageFile = "http://127.0.0.1/"+f.getName();
+            tfPermis.setText(imageFile);
             System.out.println("uploaded");
         }
     }
