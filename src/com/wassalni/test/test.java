@@ -24,7 +24,7 @@ public class test extends Application {
    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/wassalni/gui/PromotionAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/wassalni/gui/ListePromoClient.fxml"));
         
         Scene scene = new Scene(root);
         
