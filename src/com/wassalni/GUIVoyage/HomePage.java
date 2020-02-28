@@ -57,7 +57,7 @@ public class HomePage extends Application {
                         
                         
                         Parent root = FXMLLoader
-                                .load(getClass().getResource("VerifVoyage.fxml"));
+                                .load(getClass().getResource("voyage.fxml"));
                         
                         Scene scene = new Scene(root);
                         
