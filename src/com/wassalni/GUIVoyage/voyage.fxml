@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="542.0" prefWidth="779.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wassalni.GUIVoyage.VoyageController">
    <children>
-      <TableView fx:id="TableVoyage" layoutX="227.0" prefHeight="542.0" prefWidth="554.0">
+      <TableView fx:id="TableVoyage" layoutX="227.0" layoutY="31.0" prefHeight="621.0" prefWidth="710.0">
         <columns>
           <TableColumn fx:id="refId" prefWidth="93.0" text="id_voyage" />
           <TableColumn fx:id="refdistance" prefWidth="97.0" text="distance" />
@@ -19,7 +19,7 @@
             <TableColumn fx:id="refdistination" prefWidth="143.0" text="distination" />
         </columns>
       </TableView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaff00" height="542.0" stroke="BLACK" strokeType="INSIDE" width="227.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaff00" height="652.0" stroke="BLACK" strokeType="INSIDE" width="227.0" />
       <Button fx:id="Map" layoutX="68.0" layoutY="359.0" mnemonicParsing="false" onAction="#ajouter" text="Open Map" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -31,5 +31,6 @@
             <Image url="@../img/83310900_649330449136327_4776708617673900032_n.png" />
          </image>
       </ImageView>
+      <Button fx:id="Refresh" layoutX="520.0" mnemonicParsing="false" onAction="#Ref" text="Refresh" />
    </children>
 </AnchorPane>
