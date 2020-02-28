@@ -9,6 +9,8 @@ import com.wassalni.entites.Promotion;
 import com.wassalni.services.PromotionService;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -30,19 +32,19 @@ public class ListePromoAdminController implements Initializable {
     private TableView<Promotion> tblData;
 
     @FXML
-    private TableColumn<String, Promotion> Col_nom;
+    private TableColumn<Promotion, String > Col_nom;
 
     @FXML
-    private TableColumn<String, Promotion> Col_description;
+    private TableColumn<Promotion, String> Col_description;
 
     @FXML
-    private TableColumn<String, Promotion> Col_date_debut;
+    private TableColumn<Promotion, String> Col_date_debut;
 
     @FXML
-    private TableColumn<String, Promotion> Col_date_fin;
+    private TableColumn<Promotion, String> Col_date_fin;
 
     @FXML
-    private TableColumn<String, Promotion> Col_pourcentage;
+    private TableColumn<Promotion, String> Col_pourcentage;
 
     @FXML
     private Label lblStatus;
@@ -57,6 +59,17 @@ public class ListePromoAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        Col_nom.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getNom()));  
+            Col_description.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getDescription()));
+            Col_date_debut.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getDate_debut()));  
+            Col_date_fin.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getDate_fin()));  
+            Col_pourcentage.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getsPourcentage()));  
+            PromotionService ps = new PromotionService();
+            ObservableList<Promotion> list = ps.getAllPromotion();
+            System.out.println(list);
+            tblData.setItems(list);
+        
         
         
     }    
