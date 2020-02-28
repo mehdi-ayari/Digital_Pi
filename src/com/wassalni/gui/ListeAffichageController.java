@@ -33,7 +33,6 @@ public class ListeAffichageController implements Initializable {
     private TableColumn<User , String> Col_Name;
     @FXML
     private TableColumn<User, String> Col_LastName;
-    @FXML private TableColumn<User, String> empImage;
     
     ObservableList<User> oblist = FXCollections.observableArrayList();
     @Override
@@ -47,8 +46,7 @@ public class ListeAffichageController implements Initializable {
         
         Col_Name.setCellValueFactory(new PropertyValueFactory<>("nom"));
         Col_LastName.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        empImage.setPrefWidth(80); 
-        empImage.setCellValueFactory(new PropertyValueFactory<>("permis"));
+        
                 
         this.tblData.setItems(oblist);
     }

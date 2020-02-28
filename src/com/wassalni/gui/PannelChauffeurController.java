@@ -66,7 +66,7 @@ public class PannelChauffeurController implements Initializable {
     private void profil(ActionEvent event) throws IOException {
         
         
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/ListeAffichage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/ProfileChauffeur.fxml"));
             Parent root = loader.load();       
             container_chauffeur.getChildren().setAll(root);
     }
