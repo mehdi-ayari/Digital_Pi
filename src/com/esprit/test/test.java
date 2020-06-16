@@ -43,7 +43,6 @@ public class test extends Application {
         
         try {
             v.ajouter(voy);
-            v.pdf();
         } catch (SQLException ex) {
         }
     }

@@ -136,10 +136,10 @@ public class ServiceVoyage implements IVoyage{
     return Voy;
     }*/
    
-    public void pdf() throws FileNotFoundException, DocumentException
+    /*public void pdf() throws FileNotFoundException, DocumentException
     {
         try {
-            String file_name ="C:\\Users\\CHOUCHANE MD\\Desktop\\Jawhar\\Jawhar.pdf";
+            String file_name ="C:\\Users\\jawha\\Desktop\\Jawhar.pdf";
             Document document = new Document();
             //file_name.setReadable(true,false);
             PdfWriter.getInstance(document, new FileOutputStream(file_name));
@@ -161,7 +161,7 @@ public class ServiceVoyage implements IVoyage{
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Voyage.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+}*/
     
     
    

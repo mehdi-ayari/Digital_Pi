@@ -12,8 +12,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -73,7 +71,6 @@ public class VoyageController implements Initializable {
         try {
             data.addAll(sv.readAll());
         } catch (SQLException ex) {
-            Logger.getLogger(VoyageController.class.getName()).log(Level.SEVERE, null, ex);
         }
        
       
