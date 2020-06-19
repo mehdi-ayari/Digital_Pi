@@ -37,13 +37,13 @@
                   <Pane prefHeight="398.0" prefWidth="363.0" />
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="tfNom" layoutX="46.0" layoutY="80.0" onKeyReleased="#controlNom" prefHeight="30.0" prefWidth="154.0" promptText="Nom" />
+                        <TextField fx:id="tfNom" layoutX="14.0" layoutY="80.0" onKeyReleased="#controlNom" prefHeight="30.0" prefWidth="154.0" promptText="Nom" />
                         <TextField fx:id="tfPrenom" layoutX="248.0" layoutY="80.0" onKeyReleased="#controlPrenom" prefHeight="30.0" prefWidth="154.0" promptText="Prenom" />
-                        <TextField fx:id="tfMail" layoutX="46.0" layoutY="140.0" onKeyReleased="#controlEmail" prefHeight="30.0" prefWidth="154.0" promptText="mail" />
+                        <TextField fx:id="tfMail" layoutX="14.0" layoutY="144.0" onKeyReleased="#controlEmail" prefHeight="30.0" prefWidth="154.0" promptText="mail" />
                         <TextField fx:id="tfTel" layoutX="248.0" layoutY="144.0" onKeyReleased="#controlNumero" prefHeight="30.0" prefWidth="154.0" promptText="telephone" />
-                        <PasswordField fx:id="psPass" layoutX="46.0" layoutY="204.0" onKeyReleased="#controlMDP" prefHeight="30.0" prefWidth="154.0" promptText="Password" />
+                        <PasswordField fx:id="psPass" layoutX="14.0" layoutY="204.0" onKeyReleased="#controlMDP" prefHeight="30.0" prefWidth="154.0" promptText="Password" />
                         <TextField fx:id="tfPhoto" layoutX="248.0" layoutY="204.0" prefHeight="30.0" prefWidth="154.0" promptText="photo" />
-                        <TextField fx:id="tfPermis" layoutX="46.0" layoutY="261.0" prefHeight="30.0" prefWidth="154.0" promptText="Permis" />
+                        <TextField fx:id="tfPermis" layoutX="14.0" layoutY="261.0" prefHeight="30.0" prefWidth="154.0" promptText="Permis" />
                         <TextField fx:id="tfLicence" layoutX="248.0" layoutY="261.0" prefHeight="30.0" prefWidth="154.0" promptText="Licence" />
                         <Button fx:id="B" layoutX="325.0" layoutY="322.0" mnemonicParsing="false" onAction="#signup" prefHeight="35.0" prefWidth="120.0" styleClass="button3" stylesheets="@../CSS/Fullpackstyling.css" text="Sign Up" />
                         <Label layoutX="46.0" layoutY="36.0" prefHeight="23.0" prefWidth="115.0" text="Sign Up">
@@ -51,9 +51,11 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="B1" layoutX="416.0" layoutY="207.0" mnemonicParsing="false" onAction="#upload" prefHeight="20.0" prefWidth="59.0" styleClass="button3" stylesheets="@../CSS/Fullpackstyling.css" text="Upload" />
+                        <Button fx:id="B1" layoutX="416.0" layoutY="207.0" mnemonicParsing="false" onAction="#uploadP" prefHeight="20.0" prefWidth="59.0" styleClass="button3" stylesheets="@../CSS/Fullpackstyling.css" text="Upload" />
                         <Label fx:id="labelemail" layoutX="46.0" layoutY="174.0" />
                         <Label fx:id="labelNum" layoutX="248.0" layoutY="174.0" />
+                        <Button fx:id="B11" layoutX="176.0" layoutY="264.0" mnemonicParsing="false" onAction="#uploadA" prefHeight="20.0" prefWidth="59.0" styleClass="button3" stylesheets="@../CSS/Fullpackstyling.css" text="Upload" />
+                        <Button fx:id="B12" layoutX="416.0" layoutY="264.0" mnemonicParsing="false" onAction="#uploadL" prefHeight="20.0" prefWidth="59.0" styleClass="button3" stylesheets="@../CSS/Fullpackstyling.css" text="Upload" />
                      </children>
                   </Pane>
                </children>

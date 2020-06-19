@@ -15,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -31,7 +33,7 @@ public class ChauffeurService implements IChauffeur<User>{
     @Override
     public void ajouter(User p) throws SQLException {
         PreparedStatement pre=con.prepareStatement("INSERT INTO `wassalni_data_base`.`user` (`nom`, `prenom`, `mail`, `telephone`"
-            + " ,`role`,`mdp`, `photo`, `permis`, `licence`)"
+            + " ,`role`,`password`, `image`, `permis`, `licence`)"
             + " VALUES (?,?,?,?,?,?,?,?,?);");
         
         
@@ -58,9 +60,18 @@ public class ChauffeurService implements IChauffeur<User>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List readAll() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   @Override
+    public ObservableList<User> readAll() throws SQLException {
+        ObservableList<User> oblist = FXCollections.observableArrayList();
+        ste=con.createStatement();
+        ResultSet rs=ste.executeQuery("SELECT * FROM `user` where role = '"+Role.getChauffeur()+"'");
+        while (rs.next()) {                
+               String nom=rs.getString("nom");
+               String prenom=rs.getString("prenom");
+               String permis = rs.getString("permis");
+               User c=new User(nom,prenom,permis);
+        oblist.add(c);    }
+        return  oblist;
     }
     public Boolean findUserByEmail(String email) {
         User user = null;
@@ -85,6 +96,39 @@ public class ChauffeurService implements IChauffeur<User>{
         return true;
     
     }
+    public User finUserById(int id)
+    {
+          User user=new User();
+         
+         try {
+             String requete = "select * from user where id='"+id+ "'"; 
+             Statement st=con.createStatement();
+             ResultSet rs=st.executeQuery(requete);
+            
+     
+     
+             while(rs.next())
+             {
+                   user.setId(rs.getInt("id"));
+                 user.setNom(rs.getString("nom"));
+                 user.setPrenom(rs.getString("prenom"));
+                 user.setMail(rs.getString("mail"));
+                 user.setPhoto(rs.getString("image"));
+                 user.setTelephone(rs.getInt("Telephone"));
+                 user.setRole(Role.valueOf(rs.getString("role")));
+               
+                
+             }
+            
+           
+         } catch (SQLException ex) {
+           
+         }
+              System.out.println(user.toString());    
+         return user;
+    }
+    
+    
 
   
 }

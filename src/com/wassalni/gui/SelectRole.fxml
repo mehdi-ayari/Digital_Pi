@@ -40,7 +40,7 @@
                               <Font size="25.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="ride" layoutX="136.0" layoutY="257.0" onAction="#goChauffeur" prefHeight="49.0" prefWidth="256.0" text="Sign up to ride" wrapText="true">
+                        <JFXButton fx:id="ride" layoutX="136.0" layoutY="257.0" onAction="#goClient" prefHeight="49.0" prefWidth="256.0" text="Sign up to ride" wrapText="true">
                            <font>
                               <Font size="25.0" />
                            </font>

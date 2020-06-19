@@ -3,19 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/GUIVoyage/VoyageController.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/gui/SelectRoleController.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/gui/SignInController.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/services/ServiceVoyage.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/services/ReservationService.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/GUIVoyage/HomePage.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/utilits/DataBase.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/services/FtpUpload.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/gui/PannelClientController.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/test/test.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/gui/SignUpClientController.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/gui/SignUPChauffeurController.java</file>
-            <file>file:/C:/Users/CHOUCHANE%20MD/Documents/GitHub/Digital_Pi/src/com/wassalni/GUIVoyage/VerifVoyageController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/profileClient.fxml</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/guiRes/ReservationController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/utilits/DataBase.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/entites/Voyage.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/services/ServiceVoyage.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/services/ReservationService.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/guiRes/Map.fxml</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/GUIVoyage/VoyageController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/entites/Comment.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/entites/Reservationbusiness.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/entites/Reservation.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/guiRes/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/ListeAffichageController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/entites/News.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/guiRes/MapController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/SignInController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/ProfileChauffeurController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/esprit/gui/HomePage.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/GUIVoyage/VerifVoyageController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/entites/Type.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/test/test.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/SignUpClient.fxml</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/GUIVoyage/MapController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/SignUpClientController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/GUIVoyage/HomePage.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/ProfileClientController.java</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/ProfileChauffeur.fxml</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/gui/pannelAdmin.fxml</file>
+            <file>file:/C:/Users/jawha/Desktop/Digital_Pi/src/com/wassalni/guiRes/Interface_reservation_business.fxml</file>
         </group>
     </open-files>
 </project-private>

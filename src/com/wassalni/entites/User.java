@@ -40,6 +40,14 @@ public class User {
         this.permis = permis;
     }
 
+    public User(String nom, String prenom, String permis) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.permis = permis;
+    }
+    
+    
+
   
 
    

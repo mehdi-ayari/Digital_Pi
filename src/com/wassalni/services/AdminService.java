@@ -60,7 +60,7 @@ public class AdminService {
                  user.setNom(rs.getString("nom"));
                  user.setPrenom(rs.getString("prenom"));
                  user.setMail(rs.getString("mail"));
-                 user.setPhoto(rs.getString("photo"));
+                 user.setPhoto(rs.getString("image"));
                  user.setTelephone(rs.getInt("Telephone"));
                  user.setRole(Role.valueOf(rs.getString("role")));
 

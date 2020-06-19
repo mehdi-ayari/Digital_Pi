@@ -29,7 +29,7 @@ public class EntrepiseService implements IEntreprise<User>{
     @Override
     public void ajouter(User p) throws SQLException {
          PreparedStatement pre=con.prepareStatement("INSERT INTO `wassalni_data_base`.`user` (`nom`, `prenom`, `mail`, `telephone`"
-            + " ,`adresse`,`role`,`mdp`, `nbr_emp`)"
+            + " ,`adresse`,`role`,`password`, `nbr_emp`)"
             + " VALUES (?,?,?,?,?,?,?,?,?);");
         pre.setString(1, p.getNom());
         pre.setString(2, p.getPrenom());

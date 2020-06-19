@@ -23,9 +23,7 @@ public class ClientService implements IClient<User> {
     }
     @Override
     public void ajouter(User p) throws SQLException {
-        PreparedStatement pre=con.prepareStatement("INSERT INTO `wassalni_data_base`.`user` (`nom`, `prenom`, `mail`, `telephone`"
-            + " ,`adresse`,`role`,`mdp`, `photo`)"
-            + " VALUES (?,?,?,?,?,?,?,?);");
+        PreparedStatement pre=con.prepareStatement("INSERT INTO `wassalni`.`user` (`nom`, `prenom`, `email`, `telephone` ,`adresse`,`role`,`password`, `image`,`username`,`username_canonical`,`email_canonical`,`firstname`,`lastname`,`enabled`,`mail`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
         
         
     pre.setString(1, p.getNom());
@@ -36,6 +34,14 @@ public class ClientService implements IClient<User> {
     pre.setString(6,String.valueOf(Role.getClient()));
     pre.setString(7, p.getMotDePasse());
     pre.setString(8, p.getPhoto());
+    pre.setString(9, p.getPrenom());
+    pre.setString(10, p.getPrenom());
+    pre.setString(11, p.getMail());
+    pre.setString(12, p.getPrenom());
+    pre.setString(13, p.getNom());
+    pre.setString(15, p.getMail());
+    pre.setInt(14, 1);
+
     pre.executeUpdate();
     System.out.println("inserted");
     }

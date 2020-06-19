@@ -50,6 +50,7 @@
                               <Font name="Arial Black" size="18.0" />
                            </font>
                         </Label>
+                        <Button layoutX="273.0" layoutY="219.0" mnemonicParsing="false" onAction="#uploadP" prefHeight="35.0" prefWidth="120.0" styleClass="button3" stylesheets="@../CSS/Fullpackstyling.css" text="Upload" />
                      </children>
                   </Pane>
                </children>

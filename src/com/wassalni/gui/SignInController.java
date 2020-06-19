@@ -77,7 +77,7 @@ public class SignInController implements Initializable {
            
             }
         catch (SQLException ex) {
-
+            System.out.println(ex);
         }}
     
     

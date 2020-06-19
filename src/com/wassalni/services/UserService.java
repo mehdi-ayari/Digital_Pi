@@ -16,7 +16,7 @@ import java.sql.Statement;
  * @author jawed
  */
 public class UserService {
-     public User connecter(String login) throws SQLException{
+    public User connecter(String login) throws SQLException{
         
        
             String req="Select * from user WHERE nom='"+login+"'or mail='"+login+"'";
@@ -28,7 +28,7 @@ public class UserService {
                 
                 user.setId(rs.getInt("id"));
                 user.setNom(rs.getString("nom"));
-                user.setMotDePasse(rs.getString("mdp"));
+                user.setMotDePasse(rs.getString("password"));
                 user.setRole(Role.valueOf(rs.getString("role")));
 
         }
@@ -64,7 +64,7 @@ public class UserService {
                  user.setNom(rs.getString("nom"));
                  user.setPrenom(rs.getString("prenom"));
                  user.setMail(rs.getString("mail"));
-                 user.setPhoto(rs.getString("photo"));
+                 user.setPhoto(rs.getString("image"));
                  user.setTelephone(rs.getInt("Telephone"));
                  user.setRole(Role.valueOf(rs.getString("role")));
                

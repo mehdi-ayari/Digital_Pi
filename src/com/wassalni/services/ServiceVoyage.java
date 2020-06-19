@@ -100,7 +100,7 @@ public class ServiceVoyage implements IVoyage{
 
     }
    
-   
+
     @Override
     public void ajouter(Voyage v) throws SQLException {
         
@@ -123,18 +123,17 @@ public class ServiceVoyage implements IVoyage{
                 
                 
             ste = con.createStatement();
-            String requeteInsert = "INSERT INTO `wassalni_data_base`.`voyage` (`distance`, `date_voyage`, `reservation_id_res`) VALUES ('" + v.getDistance()+ "', CURRENT_TIMESTAMP(), '" + idRes+ "') where select date_res from reservation where date_res between (CURRENT_TIMESTAMP() - 00000000000200) and (CURRENT_TIMESTAMP() + 00000000000200 );";
+            String requeteInsert = "INSERT INTO `wassalni`.`voyage` (`distance`, `date_voyage`, `reservation_id_res`) VALUES ('" + v.getDistance()+ "', CURRENT_TIMESTAMP(), '" + idRes+ "') where select date_res from reservation where date_res between (CURRENT_TIMESTAMP() - 00000000000200) and (CURRENT_TIMESTAMP() + 00000000000200 );";
             ste.executeUpdate(requeteInsert);  
 
         
     }
     
-            
 
     @Override
-    public boolean delete(int id_news) throws SQLException {
-        PreparedStatement pre=con.prepareStatement("DELETE FROM `wassalni_data_base`.`voyage` WHERE id_news=? ;");
-                 pre.setInt(1, id_news);
+    public boolean delete(int id_voyage) throws SQLException {
+        PreparedStatement pre=con.prepareStatement("DELETE FROM `wassalni`.`voyage` WHERE id_voyage=? ;");
+                 pre.setInt(1, id_voyage);
                  if (pre.executeUpdate()!=0 )
                  {System.out.println ("Voyage Deleted");
                          return true ;
@@ -149,6 +148,41 @@ public class ServiceVoyage implements IVoyage{
     List<Voyage> Voy=new ArrayList<>();
     ste=con.createStatement();
     ResultSet rs=ste.executeQuery("select id_voyage , distance , date_voyage , reservation_id_res , destination from voyage v inner join reservation r where reservation_id_res = "+ idRes + tri + ordre);
+     while (rs.next()) {                
+               int id_voyage=rs.getInt(1);
+               float distance=rs.getFloat("distance");
+               Timestamp date_voyage=rs.getTimestamp("date_voyage");
+               int reservation_id_res=rs.getInt("reservation_id_res");
+               String destination=rs.getString("destination");
+               Voyage n=new Voyage(id_voyage, distance, date_voyage, reservation_id_res,destination);
+     Voy.add(n);
+     }
+    return Voy;
+    }
+    
+    
+    
+    public List<Voyage> readVoyage() throws SQLException {
+    List<Voyage> Voy=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select id_voyage , distance , date_voyage , reservation_id_res , destination from voyage v inner JOIN reservation r ON v.reservation_id_res = r.id_res WHERE v.date_voyage between DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL -3 HOUR) and CURRENT_TIMESTAMP() ");
+     while (rs.next()) {                
+               int id_voyage=rs.getInt(1);
+               float distance=rs.getFloat("distance");
+               Timestamp date_voyage=rs.getTimestamp("date_voyage");
+               int reservation_id_res=rs.getInt("reservation_id_res");
+               String destination=rs.getString("destination");
+               Voyage n=new Voyage(id_voyage, distance, date_voyage, reservation_id_res,destination);
+     Voy.add(n);
+     }
+    return Voy;
+    }
+    
+    
+    public List<Voyage> readVoyageDone() throws SQLException {
+    List<Voyage> Voy=new ArrayList<>();
+    ste=con.createStatement();
+    ResultSet rs=ste.executeQuery("select id_voyage , distance , date_voyage , reservation_id_res , destination from voyage v inner join reservation r ON v.reservation_id_res = r.id_res where v.date_voyage between DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL -12 DAY) and DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL -3 HOUR)");
      while (rs.next()) {                
                int id_voyage=rs.getInt(1);
                float distance=rs.getFloat("distance");
@@ -206,6 +240,7 @@ public class ServiceVoyage implements IVoyage{
             Logger.getLogger(Voyage.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
+
     
     
     

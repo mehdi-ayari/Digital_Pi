@@ -8,7 +8,9 @@ package com.wassalni.gui;
 import com.wassalni.entites.User;
 import com.wassalni.services.ChauffeurService;
 import com.wassalni.services.ClientService;
+import com.wassalni.services.FtpUpload;
 import com.wassalni.services.Password;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -20,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -81,6 +84,21 @@ public class SignUpClientController implements Initializable {
             SignInController signin = loader.getController();
             tfNom.getScene().setRoot(root);
             
+    }
+    @FXML
+    private void uploadP(ActionEvent event) {
+        
+        FileChooser fc = new FileChooser();
+        FtpUpload Upload = new FtpUpload();
+        String imageFile = "";
+        File f = fc.showOpenDialog(null);
+        System.out.println(f.getName());
+        if (f != null) {
+            Upload.FTPTransfer(f);
+            imageFile = "http://127.0.0.1/"+f.getName();
+            tfPhoto.setText(imageFile);
+            System.out.println("uploaded");
+        }
     }
     
 }

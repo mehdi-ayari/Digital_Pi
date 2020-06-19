@@ -79,7 +79,8 @@ public class VoyageController implements Initializable {
         
                      
         try {
-            data.addAll(sv.readAll());
+            data.addAll(sv.readVoyage());
+            data.addAll(sv.readVoyageDone());
         } catch (SQLException ex) {
             Logger.getLogger(VoyageController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -166,7 +167,8 @@ public class VoyageController implements Initializable {
     private void Ref(ActionEvent event) {
         
                 try {
-            data.addAll(sv.readAll());
+            data.addAll(sv.readVoyage());
+            data.addAll(sv.readVoyageDone());
             
         } catch (SQLException ex) {
             Logger.getLogger(VoyageController.class.getName()).log(Level.SEVERE, null, ex);

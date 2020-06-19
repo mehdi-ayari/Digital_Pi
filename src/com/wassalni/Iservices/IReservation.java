@@ -5,6 +5,7 @@
  */
 package com.wassalni.Iservices;
 
+import com.wassalni.entites.Reservation;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,5 +14,8 @@ import java.util.List;
  * @author Mahdi
  */
 public interface IReservation {
-    
+        void ajouter(Reservation r) throws SQLException;
+    boolean delete(Reservation r) throws SQLException;
+    boolean update(Reservation r) throws SQLException;
+    List<Reservation> readAll() throws SQLException;
 }
