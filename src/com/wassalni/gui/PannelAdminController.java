@@ -87,6 +87,7 @@ public class PannelAdminController implements Initializable {
     @FXML
     private void promotion(ActionEvent event) throws IOException {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/PromotionAdmin.fxml"));
+
             Parent root = loader.load();       
             container_chauffeur.getChildren().setAll(root);
     }

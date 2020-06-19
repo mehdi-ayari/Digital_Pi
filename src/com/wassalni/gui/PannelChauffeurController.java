@@ -9,11 +9,14 @@ import com.wassalni.entites.User;
 import com.wassalni.entites.Voyage;
 import com.wassalni.services.ChauffeurService;
 import com.wassalni.services.ServiceVoyage;
+
 import com.wassalni.services.UserService;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+
 import java.sql.SQLException;
+
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,6 +44,7 @@ public class PannelChauffeurController implements Initializable {
     public static int idusers = 0;
                 Voyage v = new Voyage(5);
         ServiceVoyage sv = new ServiceVoyage();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         idusers = SignInController.userIden;
@@ -85,6 +89,9 @@ public class PannelChauffeurController implements Initializable {
     @FXML
     private void AddNews(ActionEvent event) throws IOException {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/esprit/gui/AddNews.fxml"));
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/wassalni/gui/ProfileChauffeur.fxml"));
+
             Parent root = loader.load();       
             container_chauffeur.getChildren().setAll(root);
     }
@@ -111,5 +118,5 @@ public class PannelChauffeurController implements Initializable {
             container_chauffeur.getChildren().setAll(root);
     }
 
-    
+
 }

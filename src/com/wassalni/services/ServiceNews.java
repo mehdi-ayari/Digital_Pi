@@ -44,6 +44,7 @@ public class ServiceNews implements INews<News> {
                 int id_news = rs.getInt(1);
                 String titre = rs.getString("titre");
                 String desc = rs.getString("descr");
+
                 String comm = rs.getString("comm");
                 String image = rs.getString("image");
                 News n = new News(titre, desc, image);
@@ -68,6 +69,7 @@ public class ServiceNews implements INews<News> {
     public void ajouter(News t) throws SQLException {
         ste = con.createStatement();
         String requeteInsert = "INSERT INTO `wassalni`.`news` (`titre`, `descr`, `image`) VALUES ('" + t.getTitre() + "', '" + t.getDesc() + "', '" + t.getImage() + "');";
+
         ste.executeUpdate(requeteInsert);
         try {
             Notification.sendNotification("module News", "NEWS ADDED ", TrayIcon.MessageType.INFO);
@@ -80,6 +82,7 @@ public class ServiceNews implements INews<News> {
 
     public boolean ajouter1(News n) throws SQLException {
         PreparedStatement pre = con.prepareStatement("INSERT INTO `wassalni`.`news` ( `titre`, `descr`,  `image`) VALUES ( ?, ?, ?);");
+
         pre.setString(1, n.getTitre());
         pre.setString(2, n.getDesc());
         pre.setString(3, n.getImage());
@@ -110,6 +113,7 @@ public class ServiceNews implements INews<News> {
         try {
 
             PreparedStatement pre = con.prepareStatement("UPDATE news SET TITRE=?,DESCR=?,IMAGE = ?  WHERE id_news=? ");
+
 
             pre.setString(1, n.getTitre());
             pre.setString(2, n.getDesc());
@@ -143,6 +147,7 @@ public class ServiceNews implements INews<News> {
 
     public boolean updatedesc(int id_news, String desc) throws SQLException {
         PreparedStatement pre = con.prepareStatement("UPDATE `wassalni`.`news` SET DESCR = ? WHERE id_news=? ;");
+
         pre.setString(1, desc);
         pre.setInt(2, id_news);
         if (pre.executeUpdate() != 0) {
@@ -188,6 +193,7 @@ public class ServiceNews implements INews<News> {
             int id_news = rs.getInt(1);
             String titre = rs.getString("titre");
             String desc = rs.getString("descr");
+
             String image = rs.getString("image");
             News n = new News(id_news, titre, desc, image);
             arr.add(n);
@@ -211,8 +217,9 @@ public class ServiceNews implements INews<News> {
 
             n.setTitre(rs.getString("titre"));
             n.setDesc(rs.getString("descr"));
+
             n.setImage(rs.getString("image"));
-            System.out.println(rs.getString("desc") + "ghig");
+            System.out.println(rs.getString("descr") + "ghig");
 
         }
         return n;

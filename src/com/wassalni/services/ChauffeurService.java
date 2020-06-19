@@ -114,6 +114,7 @@ public class ChauffeurService implements IChauffeur<User>{
                  user.setPrenom(rs.getString("prenom"));
                  user.setMail(rs.getString("mail"));
                  user.setPhoto(rs.getString("image"));
+
                  user.setTelephone(rs.getInt("Telephone"));
                  user.setRole(Role.valueOf(rs.getString("role")));
                

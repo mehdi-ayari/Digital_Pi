@@ -23,6 +23,12 @@
                   <Font size="13.0" />
                </font>
             </Label>
+
+            <JFXButton layoutX="1041.0" layoutY="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="163.0" ripplerFill="WHITE" style="-fx-background-color: #473E98;" text="EDIT PROFILE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
             <ImageView fx:id="image" fitHeight="125.0" fitWidth="163.0" layoutX="14.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>

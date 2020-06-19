@@ -39,7 +39,8 @@ public class ServiceComment implements INews<Comment> {
 
     public void ajouter(Comment t) throws SQLException {
         ste = con.createStatement();
-        String requeteInsert = "INSERT INTO `wassalni_data_base`.`commentaire` (`text`,`id_news`)  VALUES ('" + t.getText() + "','" + ConsulterController.idn + "');";
+
+        String requeteInsert = "INSERT INTO `wassalni`.`commentaire` (`text`,`id_news`)  VALUES ('" + t.getText() + "','" + ConsulterController.idn + "');";
         // ste.executeUpdate(requeteInsert);  
 
         ste.executeUpdate(requeteInsert);

@@ -16,6 +16,7 @@
             <TableColumn fx:id="Col_Name" prefWidth="75.0" text="name" />
             <TableColumn fx:id="Col_LastName" prefWidth="75.0" text="LastName" />
             <TableColumn fx:id="empImage" prefWidth="75.0" text="Valider" />
+
             <TableColumn prefWidth="75.0" text="Delete" />
          </columns>
       </TableView>

@@ -6,6 +6,9 @@
 package com.wassalni.services;
 
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
+ 
 import com.wassalni.Iservices.IReservation;
 import com.wassalni.entites.Reservation;
 import com.wassalni.entites.Type;
@@ -18,6 +21,9 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -38,13 +44,13 @@ public class ReservationService implements IReservation {
     @Override
     public void ajouter(Reservation r) throws SQLException{
 
-        
+        try {
             ste = con.createStatement();
              String requeteInsert = "INSERT INTO `reservation`( `destination`, `date_reservation`,`type_reservation`,`prix`, `user_id_client`, `user_id_chauffeur`) "
-                + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','"+r.getType_reservation()+"',15,1,2);";
+                + "VALUES ('" + r.getDestination() + "','" + r.getDate_reservation() + "','"+r.getType_reservation()+"',15,1,1);";
         ste.executeUpdate(requeteInsert);
-                        System.out.println("reservation temchi 2");
-
+        } catch (SQLException ex) {
+        }
        
     }
 
@@ -90,15 +96,13 @@ public class ReservationService implements IReservation {
                Timestamp date_reservation=rs.getTimestamp(3);
                
                    Type type_reservation=Type.valueOf(rs.getString("type_reservation"));
+
                float prix=rs.getInt(5);
                int user_id_client=rs.getInt(6);
                int user_id_chauffeur=rs.getInt(7);
                Reservation p=new Reservation(id_res,destination, date_reservation, type_reservation,prix, user_id_client,user_id_chauffeur);
      arr.add(p);
-     
-     }
-           } catch (Exception e) {
-         }
+
         } catch (SQLException ex) {
         }
     
